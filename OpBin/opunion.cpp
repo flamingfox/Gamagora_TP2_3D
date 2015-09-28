@@ -1,6 +1,6 @@
 #include "opunion.h"
 
-OpUnion::OpUnion(const ObjectCsg &a, const ObjectCsg &b) :
+OpUnion::OpUnion(const CsgObjet &a, const CsgObjet &b) :
     OpBin(a, b)
 {
 

@@ -5,10 +5,10 @@
 class OpBin
 {
 public:
-    OpBin(const ObjetCsg& _a, const ObjetCsg& _b);
+    OpBin(const CsgObjet& _a, const CsgObjet& _b);
 
 protected:
-    ObjetCsg a, b;
+    CsgObjet a, b;
 };
 
 #endif // OPBIN_H

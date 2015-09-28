@@ -1,6 +1,6 @@
 #include "opinter.h"
 
-OpInter::OpInter(const ObjectCsg &a, const ObjectCsg &b) :
+OpInter::OpInter(const CsgObjet &a, const CsgObjet &b) :
     OpBin(a, b)
 {
 
