@@ -1,7 +1,7 @@
 #ifndef OPBIN_H
 #define OPBIN_H
 
-#include "csg_primitive.h"
+#include "csg/csg_primitive.h"
 
 class OpBin
 {

@@ -9,7 +9,7 @@ public:
     OpInter(CSG_Primitive &a, CSG_Primitive &b );
 
     bool InOut(const glm::vec3 &p);
-    bool intersect(const Rayon &r, float &t);
+    //bool intersect(const Rayon &r, float &t);
 };
 
 #endif // OPINTER_H

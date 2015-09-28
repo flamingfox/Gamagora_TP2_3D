@@ -12,7 +12,7 @@ public:
     CSG_Primitive();
     ~CSG_Primitive();
     virtual bool inOut(glm::vec3 point)=0;
-    virtual bool intersect(Rayon r, float &distance)=0;
+    //virtual bool intersect(Rayon r, float &distance)=0;
 };
 
 #endif // CSG_PRIMITIVE_H
