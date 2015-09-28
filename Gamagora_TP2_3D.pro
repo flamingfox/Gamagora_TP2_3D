@@ -7,5 +7,20 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+
+CONFIG  += c++11
+INCLUDEPATH += C:/librairie/glm
+
+
+SOURCES += main.cpp \
+    csg/csg_sphere.cpp \
+    sphere.cpp \
+    rendu/camera.cpp \
+    rendu/rayon.cpp
+
+HEADERS += \
+    csg/csg_sphere.h \
+    sphere.h \
+    rendu/camera.h \
+    rendu/rayon.h
 
