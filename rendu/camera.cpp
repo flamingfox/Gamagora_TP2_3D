@@ -14,7 +14,7 @@ Camera::Camera(const vec3 &pOr, const vec3 &pAt, const float &distance, int l, i
     _origine(pOr), _lu(l), _lv(h), _lw(distance)
 {
     glm::vec3 tmp(pAt - pOr);
-    _w = normalize(tmp);
+    _w = glm::normalize(tmp);
 
     if(_w == vec3(0.f,0.f,1.f) || _w == vec3(0.f,0.f,-1.f))
     {
@@ -23,11 +23,11 @@ Camera::Camera(const vec3 &pOr, const vec3 &pAt, const float &distance, int l, i
     }
     else
     {
-        _u = - ( cross(_w,vec3(0.f,0.f,1.f)) );
-        _u.normalize();
+        _u = - ( glm::cross(_w,vec3(0.f,0.f,1.f)) );
+        _u = glm::normalize(_u);
 
         _v = cross(_w,_u);
-        _v.normalize();
+        _v = glm::normalize(_v);
     }
 }
 

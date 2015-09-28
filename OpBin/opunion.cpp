@@ -1,6 +1,6 @@
 #include "opunion.h"
 
-OpUnion::OpUnion(const CsgObjet &a, const CsgObjet &b) :
+OpUnion::OpUnion(CSG_Primitive &a, CSG_Primitive &b) :
     OpBin(a, b)
 {
 
@@ -8,7 +8,7 @@ OpUnion::OpUnion(const CsgObjet &a, const CsgObjet &b) :
 
 bool OpUnion::InOut(const glm::vec3& p)
 {
-    if(a.inOut(p) || b.inOut(p))
+    if(a->inOut(p) || b->inOut(p))
         return true;
 
     return false;

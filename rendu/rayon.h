@@ -2,6 +2,7 @@
 #define RAYON_H
 
 #include <glm/vec3.hpp>
+#include "glm/gtx/norm.hpp"
 #include <math.h>
 
 

@@ -6,6 +6,7 @@
 #include "float.h"  //FLT_MIN FLT_MAX
 #include <QDebug>
 #include <glm/vec3.hpp>
+#include "glm/gtx/norm.hpp"
 
 using namespace glm;
 

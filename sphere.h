@@ -1,8 +1,8 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include <glm/vec3.hpp>
-#include <glm/gtx/norm.hpp> //ajouté
+#include "glm/vec3.hpp"
+#include "glm/gtx/norm.hpp"
 #include "rendu/rayon.h"
 
 using namespace glm;

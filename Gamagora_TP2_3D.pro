@@ -24,7 +24,7 @@ SOURCES += main.cpp \
     OpBin/opunion.cpp \
     OpBin/opinter.cpp \
     csg_node.cpp \
-    csg_primitive.cpp \
+    csg/csg_primitive.cpp \
     lib/vecteur.cpp
 
 HEADERS += \
@@ -36,5 +36,5 @@ HEADERS += \
     OpBin/opunion.h \
     OpBin/opinter.h \
     csg_node.h \
-    csg_primitive.h \
+    csg/csg_primitive.h \
     lib/vecteur.h

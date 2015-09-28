@@ -6,7 +6,7 @@
 class OpInter : public OpBin
 {
 public:
-    OpInter(const CsgObjet& a, const CsgObjet& b );
+    OpInter(CSG_Primitive &a, CSG_Primitive &b );
 
     bool InOut(const glm::vec3 &p);
     bool intersect(const Rayon &r, float &t);

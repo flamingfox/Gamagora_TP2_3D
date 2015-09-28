@@ -1,14 +1,16 @@
 #ifndef OPBIN_H
 #define OPBIN_H
 
+#include "csg_primitive.h"
 
 class OpBin
 {
 public:
-    OpBin(const CsgObjet& _a, const CsgObjet& _b);
+    OpBin(CSG_Primitive& _a, CSG_Primitive& _b);
+    ~OpBin();
 
 protected:
-    CsgObjet a, b;
+    CSG_Primitive *a, *b;
 };
 
 #endif // OPBIN_H
