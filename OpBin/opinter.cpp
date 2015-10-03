@@ -1,17 +1,14 @@
 #include "opinter.h"
 
-OpInter::OpInter(CSG_Primitive &a, CSG_Primitive &b) :
+OpInter::OpInter(CSG_Primitive* a, CSG_Primitive* b) :
     OpBin(a, b)
 {
 
 }
 
-bool OpInter::InOut(const glm::vec3& p)
+bool OpInter::inOut(const glm::vec3& p) const
 {
-    if(a->inOut(p) && b->inOut(p))
-        return true;
-
-    return false;
+    return (a->inOut(p) && b->inOut(p));
 }
 
 /*bool OpInter::intersect(const Rayon& r, float& t)

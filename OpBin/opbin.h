@@ -6,7 +6,7 @@
 class OpBin
 {
 public:
-    OpBin(CSG_Primitive& _a, CSG_Primitive& _b);
+    OpBin(CSG_Primitive* _a, CSG_Primitive* _b);    //info technique: selon le debbugeur, le _a perd sa caractéristique de Sphère (pointeur "Sphere::vprt" inaccessible) quand le _b prend ça valeur. C'est pour ça que j'ai passé en pointeur et pas en adresse.
     ~OpBin();
 
 protected:

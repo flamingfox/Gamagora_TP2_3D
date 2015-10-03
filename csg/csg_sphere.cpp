@@ -5,7 +5,7 @@ CSG_Sphere::CSG_Sphere(const glm::vec3 &c, float r):
 {
 }
 
-bool CSG_Sphere::inOut(vec3 point)
+bool CSG_Sphere::inOut(const vec3& point) const
 {
     return Sphere::inOut(point);
 }

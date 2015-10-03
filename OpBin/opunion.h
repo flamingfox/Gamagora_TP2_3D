@@ -6,9 +6,9 @@
 class OpUnion : public OpBin
 {
 public:
-    OpUnion(CSG_Primitive &a, CSG_Primitive &b );
+    OpUnion(CSG_Primitive* a, CSG_Primitive* b );
 
-    bool InOut(const glm::vec3 &p);
+    bool inOut(const glm::vec3 &p) const;
     //bool intersect(const Rayon &r, float &t);
 };
 

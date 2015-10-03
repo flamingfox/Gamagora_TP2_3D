@@ -8,7 +8,7 @@ class CSG_Sphere : public CSG_Primitive,  public Sphere
 {
 public:
     CSG_Sphere(const glm::vec3 &c, float r);
-    bool inOut(vec3 point);
+    bool inOut(const vec3& point) const;
 };
 
 #endif // CSG_SPHERE_H
