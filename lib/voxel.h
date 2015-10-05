@@ -8,7 +8,8 @@ public:
     Voxel();
     Voxel(int n);
 
-    int operator()(int i, int j, int k)const{return v.at(i*_n*_n+j*_n+k);}
+    const int operator()(int i, int j, int k)const{return v.at(i*_n*_n+j*_n+k);}
+    int& operator()(int i, int j, int k){return v[i*_n*_n+j*_n+k];}
 private:
     QVector<int>v;
     int _n;

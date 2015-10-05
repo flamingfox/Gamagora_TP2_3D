@@ -33,7 +33,8 @@ SOURCES += main.cpp \
     csg/csg_box.cpp \
     node.cpp \
     opUnaire/opunaire.cpp \
-    lib/voxel.cpp
+    lib/voxel.cpp \
+    rendu/scene.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -53,4 +54,5 @@ HEADERS += \
     csg/csg_box.h \
     node.h \
     opUnaire/opunaire.h \
-    lib/voxel.h
+    lib/voxel.h \
+    rendu/scene.h
