@@ -11,17 +11,18 @@ bool OpUnion::inOut(const glm::vec3& p) const
     return (a->inOut(p) || b->inOut(p));
 }
 
-/*bool OpUnion::intersect(const Rayon& r, float& t)
+bool OpUnion::intersect(const Rayon& r, float& t)
 {
-    float tTmp =  ;
+    bool ba = a->intersect(r, t);
 
-    if(a.intersect(r, tTmp) || b.intersect(r, t)){
-
-        if(tTmp < t)
+    float tTmp;
+    if(b->intersect(r, tTmp))
+    {
+        if(ba == false || tTmp < t)
             t = tTmp;
-
-        retour = true;
-
+        return true;
     }
-}*/
+    else
+        return ba;
+}
 

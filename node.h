@@ -1,6 +1,6 @@
 #ifndef NODE_H
 #define NODE_H
-#include "rayon.h"
+#include "rendu/rayon.h"
 
 ///
 /// \author Rudi Welter

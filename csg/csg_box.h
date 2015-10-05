@@ -8,8 +8,13 @@
 class CSG_Box : public CSG_Primitive,  public Box
 {
 public:
-    CSG_Box(const glm::vec3& min, const glm::vec3& max);
+    CSG_Box(float cote);
     bool inOut(const vec3& point) const;
+
+    bool intersect(const Rayon &r, float &distanceMin) const;
+
+private:
+    float cote;
 };
 
 #endif // CSG_BOX_H

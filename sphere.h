@@ -14,7 +14,7 @@ public:
     Sphere(const vec3& centre, float rayon);
 
     bool intersect(const Rayon& r, float& minDist, float& maxDist) const;
-    virtual bool inOut(const vec3& p) const;
+    bool inOut(const vec3& p) const;
 
     private:
 

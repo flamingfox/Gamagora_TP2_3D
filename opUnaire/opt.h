@@ -11,6 +11,8 @@ public:
     OpT(CSG_Primitive* a, const glm::vec3& tranlate);
 
     bool inOut(const glm::vec3 &p) const;
+    bool intersect(const Rayon &r, float &distanceMin) const;
+
 private:
     glm::vec3 trans;
 };

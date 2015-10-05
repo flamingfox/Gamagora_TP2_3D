@@ -12,6 +12,7 @@ public:
     ~OpUnaire();
 
     virtual bool inOut(const glm::vec3 &p) const = 0;
+    virtual bool intersect(const Rayon &r, float &distanceMin) const = 0;
 protected:
     CSG_Primitive* a;   //à remplacer par une Node* pour la suite
 };
