@@ -9,12 +9,11 @@ class CSG_Box : public CSG_Primitive,  public Box
 {
 public:
     CSG_Box(float cote);
+    CSG_Box(const vec3& _min, const vec3& _max);
     bool inOut(const vec3& point) const;
-
     bool intersect(const Rayon &r, float &distanceMin) const;
 
 private:
-    float cote;
 };
 
 #endif // CSG_BOX_H
