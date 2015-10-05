@@ -11,3 +11,11 @@ OpBin::~OpBin()
     delete a;
     delete b;
 }
+
+const float OpBin::distance(const glm::vec3 &p) const
+{
+    if(a->distance(p) < b->distance(p))
+        return a->distance(p);
+    else
+        return b->distance(p);
+}

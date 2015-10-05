@@ -9,3 +9,8 @@ OpUnaire::~OpUnaire()
 {
     delete a;
 }
+
+const float OpUnaire::distance(const glm::vec3 &p) const
+{
+    return a->distance(p);
+}

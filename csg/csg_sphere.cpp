@@ -21,3 +21,13 @@ bool CSG_Sphere::intersect(const Rayon &r, float &distanceMin) const
     float distanceMax;
     return Sphere::intersect(r, distanceMin, distanceMax);
 }
+
+const float CSG_Sphere::distance(const vec3 &p) const
+{
+    float dst = glm::distance(p, centre) - rayon;
+
+    if(dst > 0)
+        return dst;
+    else
+        return 0;
+}

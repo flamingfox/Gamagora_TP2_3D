@@ -12,6 +12,7 @@ public:
 
     bool inOut(const vec3& point) const;
     bool intersect(const Rayon &r, float &distanceMin) const;
+    const float distance(const glm::vec3& p) const;
 };
 
 #endif // CSG_SPHERE_H

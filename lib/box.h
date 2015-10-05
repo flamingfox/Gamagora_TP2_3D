@@ -16,14 +16,6 @@ using namespace glm;
 class Box
 {
 public:
-    /**
-     * @brief min Position d'un des points de la boite.
-     */
-    vec3 min;
-    /**
-     * @brief max Position du point opposé au point \a min sur la boite.
-     */
-    vec3 max;
 
     Box();
 
@@ -83,6 +75,16 @@ public:
     void operator+=(const vec3& t);
 
 protected:
+
+    /**
+     * @brief min Position d'un des points de la boite.
+     */
+    vec3 min;
+    /**
+     * @brief max Position du point opposé au point \a min sur la boite.
+     */
+    vec3 max;
+
 
 private:
 
