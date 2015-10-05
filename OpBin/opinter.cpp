@@ -1,6 +1,6 @@
 #include "opinter.h"
 
-OpInter::OpInter(CSG_Primitive* a, CSG_Primitive* b) :
+OpInter::OpInter(Node *a, Node *b) :
     OpBin(a, b)
 {
 

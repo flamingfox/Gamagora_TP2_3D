@@ -1,6 +1,6 @@
 #include "opunaire.h"
 
-OpUnaire::OpUnaire(CSG_Primitive* a):
+OpUnaire::OpUnaire(Node *a):
     a(a)
 {
 }

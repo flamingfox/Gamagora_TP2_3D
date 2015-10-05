@@ -1,6 +1,6 @@
 #include "opunion.h"
 
-OpUnion::OpUnion(CSG_Primitive* a, CSG_Primitive* b) :
+OpUnion::OpUnion(Node* a, Node* b) :
     OpBin(a, b)
 {
 }
@@ -11,7 +11,7 @@ bool OpUnion::inOut(const glm::vec3& p) const
     return (a->inOut(p) || b->inOut(p));
 }
 
-bool OpUnion::intersect(const Rayon& r, float& t)
+/*bool OpUnion::intersect(const Rayon& r, float& t)
 {
     bool ba = a->intersect(r, t);
 
@@ -24,5 +24,5 @@ bool OpUnion::intersect(const Rayon& r, float& t)
     }
     else
         return ba;
-}
+}*/
 

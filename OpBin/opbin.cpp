@@ -1,6 +1,6 @@
 #include "opbin.h"
 
-OpBin::OpBin(CSG_Primitive* _a, CSG_Primitive* _b) :
+OpBin::OpBin(Node* _a, Node* _b) :
     a(_a), b(_b)
 {
 

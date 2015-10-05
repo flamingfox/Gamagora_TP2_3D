@@ -8,10 +8,10 @@
 class OpS: public OpUnaire
 {
 public:
-    OpS(CSG_Primitive* a, const glm::vec3& scale);
+    OpS(Node* a, const glm::vec3& scale);
 
     bool inOut(const glm::vec3 &p) const;
-    bool intersect(const Rayon &r, float &distanceMin) const;
+    //bool intersect(const Rayon &r, float &distanceMin) const;
 private:
     glm::vec3 scale;
 };

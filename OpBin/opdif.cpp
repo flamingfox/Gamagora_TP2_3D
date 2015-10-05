@@ -1,7 +1,7 @@
 #include "opdif.h"
 
 
-OpDif::OpDif(CSG_Primitive* _a, CSG_Primitive* _b):
+OpDif::OpDif(Node *_a, Node *_b):
     OpBin(_a, _b)
 {
 }

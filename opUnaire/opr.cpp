@@ -1,6 +1,6 @@
 #include "opr.h"
 
-OpR::OpR(CSG_Primitive* a, const glm::vec3& axe, float angle):
+OpR::OpR(Node *a, const glm::vec3& axe, float angle):
     OpUnaire(a),   axe(axe),   angle(angle)
 {
 }
@@ -29,7 +29,7 @@ bool OpR::inOut(const glm::vec3 &p) const
 }
 
 
-bool OpR::intersect(const Rayon &r, float &distanceMin) const
+/*bool OpR::intersect(const Rayon &r, float &distanceMin) const
 {
     glm::vec3   o = r.getOrigine(),
                 d = r.getDirection();
@@ -63,4 +63,4 @@ bool OpR::intersect(const Rayon &r, float &distanceMin) const
     }
 
     return a->intersect(Rayon(o,d), distanceMin);
-}
+}*/
