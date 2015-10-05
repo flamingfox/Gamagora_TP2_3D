@@ -17,7 +17,7 @@ CONFIG  += c++11
 
 SOURCES += main.cpp \
     csg/csg_sphere.cpp \
-    sphere.cpp \
+    lib/sphere.cpp \
     rendu/camera.cpp \
     rendu/rayon.cpp \
     OpBin/opbin.cpp \
@@ -29,14 +29,14 @@ SOURCES += main.cpp \
     opUnaire/opt.cpp \
     opUnaire/opr.cpp \
     opUnaire/ops.cpp \
-    box.cpp \
+    lib/box.cpp \
     csg/csg_box.cpp \
     node.cpp \
     opUnaire/opunaire.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
-    sphere.h \
+    lib/sphere.h \
     rendu/camera.h \
     rendu/rayon.h \
     OpBin/opbin.h \
@@ -48,7 +48,7 @@ HEADERS += \
     opUnaire/opt.h \
     opUnaire/opr.h \
     opUnaire/ops.h \
-    box.h \
+    lib/box.h \
     csg/csg_box.h \
     node.h \
     opUnaire/opunaire.h
