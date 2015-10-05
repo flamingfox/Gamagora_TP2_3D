@@ -1,7 +1,7 @@
 #ifndef CSG_SPHERE_H
 #define CSG_SPHERE_H
 
-#include "sphere.h"
+#include "lib/sphere.h"
 #include "csg_primitive.h"
 
 class CSG_Sphere : public CSG_Primitive,  public Sphere

@@ -1,7 +1,7 @@
 #ifndef CSG_BOX_H
 #define CSG_BOX_H
 
-#include "box.h"
+#include "lib/box.h"
 #include "csg_primitive.h"
 
 
