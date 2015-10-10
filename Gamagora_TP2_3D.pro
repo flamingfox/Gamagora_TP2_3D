@@ -9,6 +9,10 @@ INCLUDEPATH += C:\lib
 INCLUDEPATH += C:\Developpement\glm
 INCLUDEPATH += C:\librairie\glm
 
+
+QMAKE_CXXFLAGS += -fopenmp
+LIBS += -fopenmp
+
 TEMPLATE = app
 
 
@@ -34,7 +38,16 @@ SOURCES += main.cpp \
     node.cpp \
     opUnaire/opunaire.cpp \
     lib/voxel.cpp \
-    rendu/scene.cpp
+    rendu/scene.cpp \
+    si/si_sphere.cpp \
+    lib/interpolation.cpp \
+    lib/noisegenerator.cpp \
+    lib/nrw.cpp \
+    terrain/terrain.cpp \
+    terrain/terrainnoise.cpp \
+    terrain/terraintab.cpp \
+    rendu/colorgradient.cpp \
+    si/si_primitive.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -55,4 +68,14 @@ HEADERS += \
     node.h \
     opUnaire/opunaire.h \
     lib/voxel.h \
-    rendu/scene.h
+    rendu/scene.h \
+    si/si_sphere.h \
+    lib/interpolation.h \
+    lib/noisegenerator.h \
+    lib/nrw.h \
+    lib/parametres.h \
+    terrain/terrain.h \
+    terrain/terrainnoise.h \
+    terrain/terraintab.h \
+    rendu/colorgradient.h \
+    si/si_primitive.h

@@ -8,11 +8,11 @@ OpBin::OpBin(Node* _a, Node* _b) :
 
 OpBin::~OpBin()
 {
-    delete a;
-    delete b;
+    //delete a;
+    //delete b;
 }
 
-const float OpBin::distance(const glm::vec3 &p) const
+float OpBin::distance(const glm::vec3 &p) const
 {
     if(a->distance(p) < b->distance(p))
         return a->distance(p);

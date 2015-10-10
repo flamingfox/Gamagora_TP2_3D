@@ -17,7 +17,7 @@ bool Scene::rendu(){
         QImage *img = new QImage(_lu, _lv, QImage::Format_RGB888);
         QImage eric(_lu, _lv, QImage::Format_RGB888);
         timer.start();
-        #pragma omp parallel for schedule(dynamic,1)
+        //#pragma omp parallel for schedule(dynamic,1)
         for(int y = 0; y < _lv ; y++){      // pour chaque ligne de l'image
             int pourcent = 100 * y / (_lv - 1);
             if(pourcent != pourcent2)            {
@@ -31,9 +31,10 @@ bool Scene::rendu(){
 
                 glm::vec3 p = c->getOrigine();
                 int i;
-                for(i = 0;  i < 256;    i++)
+                for(i = 0;  i < 128;    i++)
                 {
-                    if(node->inOut(p)){
+                    float f;
+                    if(node->inOut(p, f)){
                         touche = true;
                         break;
                     }
@@ -42,7 +43,7 @@ bool Scene::rendu(){
                 if(!touche)
                     img->setPixel(x, y, default_color.rgba());
                 else
-                    img->setPixel(x,y, QColor(i, i, i).rgba());
+                    img->setPixel(x,y, qRgb(i*10, i*20, i*30));
 
             }
         }

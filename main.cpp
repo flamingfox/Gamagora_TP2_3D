@@ -4,37 +4,44 @@
 #include "OpBin/opinter.h"
 #include "opUnaire/opt.h"
 #include "opUnaire/opr.h"
+#include "opBin/opdif.h"
 #include "node.h"
 #include "rendu/scene.h"
 
+#include "si/si_sphere.h"
 
 #include "QDebug"
 
 int main(int argc, char *argv[])
 {
 
-    CSG_Box* s1 = new CSG_Box(3.f);
-    CSG_Box* s2 = new CSG_Box(3.f);
+    SI_Sphere* s1 = new SI_Sphere(1.5f, 4.0f);
+    SI_Sphere* s2 = new SI_Sphere(1.5f, 4.0f);
+    //CSG_Sphere* s1 = new CSG_Sphere(2.f);
+    //CSG_Sphere* s2 = new CSG_Sphere(1.5f);
 
-    OpT t(s2, glm::vec3(4,0,0));
+    OpT t(s2, glm::vec3(4.25,0,0));
 
     OpUnion oU(s1, &t);
 
-    OpR oR(&oU, glm::vec3(0,0,1), 3.14f/2);
+    OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0);
 
-    qDebug() << "in :" << oR.inOut(glm::vec3(0,0,0));
+    /*qDebug() << "in :" << oR.inOut(glm::vec3(0,0,0));
 
     qDebug() << "out :" << oR.inOut(glm::vec3(3,0,0));
 
     qDebug() << "in :" << oR.inOut(glm::vec3(0,3,0));
 
-    qDebug() << "in inter :" << oR.inOut(glm::vec3(0,1,0));
+    qDebug() << "in inter :" << oR.inOut(glm::vec3(0,1,0));*/
 
     Scene scene;
     scene.setNode(&oR);
-    scene.addC(new Camera(glm::vec3(-6,-6,-6), glm::vec3(0,0,0),200,720,400));
+    scene.addC(new Camera(glm::vec3(2.5,-5,0), glm::vec3(2.5,0,0),200,720,400));
     scene.rendu();
+
+    delete s1;    delete s2;
     return 0;
+
     (void) argc;    (void) argv;
 }
 

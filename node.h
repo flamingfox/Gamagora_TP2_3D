@@ -12,7 +12,8 @@ public:
     Node();
     ~Node();
     virtual bool inOut(const glm::vec3& p) const = 0;
-    virtual const float distance(const glm::vec3& p) const =0;
+    virtual bool inOut(const glm::vec3& p, float& f) const = 0;
+    virtual float distance(const glm::vec3& p) const =0;
     //virtual bool intersect(const Rayon& r, float &distance) const =0;
 };
 

@@ -12,9 +12,10 @@ class CSG_Primitive : public Node
 public:
     CSG_Primitive();
     ~CSG_Primitive();
-    virtual bool inOut(const glm::vec3& point) const = 0;
+    virtual bool inOut(const glm::vec3& p) const = 0;
+    virtual bool inOut(const glm::vec3& p, float& f) const = 0;
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
-    virtual const float distance(const glm::vec3& p) const =0;
+    virtual float distance(const glm::vec3& p) const =0;
 };
 
 #endif // CSG_PRIMITIVE_H
