@@ -17,7 +17,7 @@ bool Scene::rendu(){
         QImage *img = new QImage(_lu, _lv, QImage::Format_RGB888);
         QImage eric(_lu, _lv, QImage::Format_RGB888);
         timer.start();
-        //#pragma omp parallel for schedule(dynamic,1)
+        #pragma omp parallel for schedule(dynamic,1)
         for(int y = 0; y < _lv ; y++){      // pour chaque ligne de l'image
             int pourcent = 100 * y / (_lv - 1);
             if(pourcent != pourcent2)            {

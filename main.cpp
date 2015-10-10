@@ -15,12 +15,12 @@
 int main(int argc, char *argv[])
 {
 
-    SI_Sphere* s1 = new SI_Sphere(1.5f, 4.0f);
-    SI_Sphere* s2 = new SI_Sphere(1.5f, 4.0f);
+    SI_Sphere* s1 = new SI_Sphere(2.0f, 4.0f);
+    SI_Sphere* s2 = new SI_Sphere(2.0f, 4.0f);
     //CSG_Sphere* s1 = new CSG_Sphere(2.f);
     //CSG_Sphere* s2 = new CSG_Sphere(1.5f);
 
-    OpT t(s2, glm::vec3(4.25,0,0));
+    OpT t(s2, glm::vec3(5.0,0,0));
 
     OpUnion oU(s1, &t);
 

@@ -24,8 +24,9 @@ bool SI_Sphere::inOut(const vec3 &p, float &f) const
         f = 1.f;
         return true;
     }
-    f = interp::interp_linear1D(sqrt(dist2), 1.f, 0.f, rayonMin, rayon);
-    //f = interp::interp_linear1D(dist2, 1.f, 0.f, rayonMin*rayonMin, rayon*rayon);
+    //f = interp::interp_linear1D(sqrt(dist2), 1.f, 0.f, rayonMin, rayon);
+    f = interp::interp_linear1D(dist2, 1.f, 0.f, rayonMin*rayonMin, rayon*rayon);
+    f *= f;
     return false;
 }
 
