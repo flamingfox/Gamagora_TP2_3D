@@ -54,6 +54,12 @@ bool Terrain::inOut(const vec3& pointXYZ) const
 {
     return (pointXYZ.z <= getHauteur(pointXYZ.x, pointXYZ.y));
 }
+bool Terrain::inOut(const vec3& pointXYZ, float& f) const
+{
+    bool b = (pointXYZ.z <= getHauteur(pointXYZ.x, pointXYZ.y));
+    f = (b == true  ?   1.f :   0.f);
+    return b;
+}
 
 bool Terrain::intersect(const Rayon& rayon, float &coeffDistance, int &i) const
 {
@@ -162,6 +168,11 @@ void Terrain::getColor(float& r, float& g, float& b, float x, float y) const
 
 /***********************************************************************/
 
+
+float Terrain::distance(const glm::vec3& p) const
+{
+    return 0;
+}
 
 
 /*bool Mesh::intersectWithMesh(const Rayon& rayon, float &coeffDistance) const{
