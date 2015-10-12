@@ -20,6 +20,9 @@ int main(int argc, char *argv[])
     //CSG_Sphere* s1 = new CSG_Sphere(2.f);
     //CSG_Sphere* s2 = new CSG_Sphere(1.5f);
 
+    float min, max;
+    s1->intersect(Rayon(vec3(3,0,4.1),vec3(-1,0,0)), min, max);
+    std::cout << min << " / " << max << std::endl;
     OpT t(s2, glm::vec3(5.0,0,0));
 
     OpUnion oU(s1, &t);
