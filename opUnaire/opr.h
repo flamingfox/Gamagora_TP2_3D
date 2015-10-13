@@ -11,7 +11,7 @@ public:
     OpR(Node* a, const glm::vec3& axe, float angle);
 
     bool inOut(const glm::vec3 &p) const;
-    bool inOut(const glm::vec3& p, float& f) const;
+    float potentiel(const glm::vec3& p) const;
     //bool intersect(const Rayon &r, float &distanceMin) const;
 private:
     //glm::vec3 centre;     //a vec3(0,0,0) pour être plus logique avec les fonctions de rotation des logiciels de synthèse.

@@ -27,7 +27,7 @@ bool OpR::inOut(const glm::vec3 &p) const
     }
     return a->inOut(v);
 }
-bool OpR::inOut(const glm::vec3 &p, float& f) const
+float OpR::potentiel(const glm::vec3 &p) const
 {
     glm::vec3 v = p;
     if(angle != 0)
@@ -45,7 +45,7 @@ bool OpR::inOut(const glm::vec3 &p, float& f) const
                 v.z*cos(-angle)+
                 (-axe.y*x + axe.x*y) * sin(-angle);
     }
-    return a->inOut(v, f);
+    return a->potentiel(v);
 }
 
 

@@ -13,21 +13,17 @@ SI_Sphere::SI_Sphere(const vec3& centre, float rayonMin, float rayonMax):
 
 }
 
-bool SI_Sphere::inOut(const vec3 &p, float &f) const
+float SI_Sphere::potentiel(const vec3 &p) const
 {
     float dist2 = distance2(p,centre);
-    if(dist2 >= rayon*rayon)    {
-        f = 0.f;
-        return false;
-    }
-    else if(dist2 <= rayonMin*rayonMin) {
-        f = 1.f;
-        return true;
-    }
-    //f = interp::interp_linear1D(sqrt(dist2), 1.f, 0.f, rayonMin, rayon);
-    f = interp::interp_linear1D(dist2, 1.f, 0.f, rayonMin*rayonMin, rayon*rayon);
-    f *= f;
-    return false;
+
+    if(dist2 >= rayon*rayon)
+        return 0.f;
+    else if(dist2 <= rayonMin*rayonMin)
+        return 1.f;
+
+    float f = interp::interp_linear1D(dist2, 1.f, 0.f, rayonMin*rayonMin, rayon*rayon);
+    return f*f;
 }
 
 float SI_Sphere::distance(const vec3 &p) const

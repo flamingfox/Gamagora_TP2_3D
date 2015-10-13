@@ -33,8 +33,7 @@ bool Scene::rendu(){
                 int i;
                 for(i = 0;  i < 128;    i++)
                 {
-                    float f;
-                    if(node->inOut(p, f)){
+                    if(node->inOut(p)){
                         touche = true;
                         break;
                     }

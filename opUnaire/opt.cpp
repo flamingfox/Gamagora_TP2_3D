@@ -11,9 +11,9 @@ bool OpT::inOut(const glm::vec3 &p) const
 {
     return a->inOut(p-trans);
 }
-bool OpT::inOut(const glm::vec3& p, float& f) const
+float OpT::potentiel(const glm::vec3& p) const
 {
-    return a->inOut(p-trans, f);
+    return a->potentiel(p-trans);
 }
 
 /*bool OpT::intersect(const Rayon &r, float &distanceMin) const

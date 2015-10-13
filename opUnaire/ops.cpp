@@ -13,9 +13,9 @@ bool OpS::inOut(const glm::vec3 &p) const
     return a->inOut(p/scale);
 }
 
-bool OpS::inOut(const glm::vec3& p, float& f) const
+float OpS::potentiel(const glm::vec3& p) const
 {
-    return a->inOut(p/scale, f);
+    return a->potentiel(p/scale);
 }
 
 /*bool OpS::intersect(const Rayon &r, float &distanceMin) const

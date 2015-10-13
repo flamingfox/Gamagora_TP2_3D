@@ -10,7 +10,7 @@ public:
     SI_Sphere(float rayonMin, float rayonMax);
     SI_Sphere(const vec3& centre, float rayonMin, float rayonMax);
 
-    bool inOut(const glm::vec3& p, float& f) const;
+    float potentiel(const glm::vec3& p) const;
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     float distance(const glm::vec3& p) const;
 

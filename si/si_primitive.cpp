@@ -6,6 +6,6 @@ SI_Primitive::SI_Primitive()
 
 bool SI_Primitive::inOut(const glm::vec3 &p) const
 {
-    float f;
-    return inOut(p, f);
+    return potentiel(p) >= 1.f;
 }
+

@@ -9,6 +9,7 @@
 #include "rendu/scene.h"
 
 #include "si/si_sphere.h"
+#include "si/opmelange.h"
 
 #include "QDebug"
 
@@ -25,7 +26,7 @@ int main(int argc, char *argv[])
     std::cout << min << " / " << max << std::endl;
     OpT t(s2, glm::vec3(5.0,0,0));
 
-    OpUnion oU(s1, &t);
+    opMelange oU(s1, &t);
 
     OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0);
 

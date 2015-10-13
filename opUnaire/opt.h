@@ -11,7 +11,7 @@ public:
     OpT(Node* a, const glm::vec3& tranlate);
 
     bool inOut(const glm::vec3 &p) const;
-    bool inOut(const glm::vec3& p, float& f) const;
+    float potentiel(const glm::vec3& p) const;
     //bool intersect(const Rayon &r, float &distanceMin) const;
 
 private:

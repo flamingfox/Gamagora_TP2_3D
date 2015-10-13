@@ -11,13 +11,10 @@ bool OpInter::inOut(const glm::vec3& p) const
     return (a->inOut(p) && b->inOut(p));
 }
 
-bool OpInter::inOut(const glm::vec3& p, float& f) const
+float OpInter::potentiel(const glm::vec3& p) const
 {
-    float f2;
-    bool in = (a->inOut(p,f) && b->inOut(p, f2));
-    if(f > f2)
-        f = f2;
-    return in;
+    return std::min(a->potentiel(p), b->potentiel(p));
+
 }
 
 /*bool OpInter::intersect(const Rayon& r, float& t)
