@@ -48,7 +48,8 @@ SOURCES += main.cpp \
     terrain/terraintab.cpp \
     rendu/colorgradient.cpp \
     si/si_primitive.cpp \
-    si/opmelange.cpp
+    si/opmelange.cpp \
+    si/si_box.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -80,4 +81,5 @@ HEADERS += \
     terrain/terraintab.h \
     rendu/colorgradient.h \
     si/si_primitive.h \
-    si/opmelange.h
+    si/opmelange.h \
+    si/si_box.h

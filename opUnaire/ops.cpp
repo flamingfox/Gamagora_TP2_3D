@@ -6,17 +6,13 @@ OpS::OpS(Node *a, const glm::vec3& scale):
 {
 }
 
+glm::vec3 OpS::deplace(const glm::vec3& p) const
+{
+    return p/scale;
+}
+
 /*************************************************************************************/
 
-bool OpS::inOut(const glm::vec3 &p) const
-{
-    return a->inOut(p/scale);
-}
-
-float OpS::potentiel(const glm::vec3& p) const
-{
-    return a->potentiel(p/scale);
-}
 
 /*bool OpS::intersect(const Rayon &r, float &distanceMin) const
 {

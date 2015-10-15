@@ -17,13 +17,6 @@ bool CSG_Sphere::inOut(const vec3& point) const
 }
 
 
-bool CSG_Sphere::inOut(const vec3& p, float& f) const
-{
-    bool b = CSG_Sphere::inOut(p);
-    f = (b == true  ?   1.f :   0.f);
-    return b;
-}
-
 
 bool CSG_Sphere::intersect(const Rayon &r, float &distanceMin) const
 {

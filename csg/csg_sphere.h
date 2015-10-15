@@ -11,7 +11,6 @@ public:
     CSG_Sphere(const glm::vec3 &c, float r);
 
     bool inOut(const vec3& p) const;
-    bool inOut(const vec3& p, float& f) const;
     bool intersect(const Rayon &r, float &distanceMin) const;
     float distance(const glm::vec3& p) const;
 };

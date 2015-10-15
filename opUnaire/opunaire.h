@@ -11,12 +11,14 @@ public:
     OpUnaire(Node* a);
     ~OpUnaire();
 
-    virtual bool inOut(const glm::vec3 &p) const = 0;
-    virtual float potentiel(const glm::vec3& p) const = 0;
+    bool inOut(const glm::vec3 &p) const;
+    float potentiel(const glm::vec3& p) const;
     //virtual bool intersect(const Rayon &r, float &distanceMin) const = 0;
     float distance(const glm::vec3& p) const;
 protected:
     Node* a;   //à remplacer par une Node* pour la suite
+
+    virtual glm::vec3 deplace(const glm::vec3& p) const = 0;
 };
 
 

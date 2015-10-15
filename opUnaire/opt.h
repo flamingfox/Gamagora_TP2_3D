@@ -10,12 +10,13 @@ class OpT: public OpUnaire
 public:
     OpT(Node* a, const glm::vec3& tranlate);
 
-    bool inOut(const glm::vec3 &p) const;
-    float potentiel(const glm::vec3& p) const;
     //bool intersect(const Rayon &r, float &distanceMin) const;
 
 private:
     glm::vec3 trans;
+
+protected:
+    glm::vec3 deplace(const glm::vec3& p) const;
 };
 
 

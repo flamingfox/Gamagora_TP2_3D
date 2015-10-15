@@ -1,5 +1,9 @@
 #include "opmelange.h"
 
+opMelange::opMelange()
+{
+}
+
 opMelange::opMelange(Node* prim)
 {
     primitives.push_back(prim);
@@ -27,7 +31,7 @@ opMelange* opMelange::addPrim(Node* prim)
 
 bool opMelange::inOut(const vec3 &p) const
 {
-    return potentiel(p) >= 1.0f;
+    return potentiel(p) >= 0.5f;
 }
 
 

@@ -14,8 +14,5 @@ OpBin::~OpBin()
 
 float OpBin::distance(const glm::vec3 &p) const
 {
-    if(a->distance(p) < b->distance(p))
-        return a->distance(p);
-    else
-        return b->distance(p);
+    return std::min(a->distance(p) , b->distance(p));
 }

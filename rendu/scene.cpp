@@ -31,18 +31,24 @@ bool Scene::rendu(){
 
                 glm::vec3 p = c->getOrigine();
                 int i;
-                for(i = 0;  i < 128;    i++)
+                float dist = 0;
+                for(i = 0;  i < 64;    i++)
                 {
                     if(node->inOut(p)){
                         touche = true;
                         break;
                     }
-                    p += r.getDirection()*0.1f;
+                    float d = node->distance(p)+0.05f;
+                    dist += d;
+                    if(dist > 9999) //si on va trop loin, on arrête la progression.
+                        break;
+                    p += r.getDirection()*(d);
+
                 }
                 if(!touche)
                     img->setPixel(x, y, default_color.rgba());
                 else
-                    img->setPixel(x,y, qRgb(i*10, i*20, i*30));
+                    img->setPixel(x,y, qRgb(dist*19, dist*23, dist*29));
 
             }
         }

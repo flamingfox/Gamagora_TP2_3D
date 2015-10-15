@@ -17,6 +17,11 @@ float OpInter::potentiel(const glm::vec3& p) const
 
 }
 
+float OpInter::distance(const glm::vec3 &p) const
+{
+    return std::min(a->distance(p), b->distance(p));
+}
+
 /*bool OpInter::intersect(const Rayon& r, float& t)
 {
     float tTmp = 0;

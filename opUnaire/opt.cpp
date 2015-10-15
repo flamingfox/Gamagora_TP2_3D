@@ -5,16 +5,13 @@ OpT::OpT(Node *a, const glm::vec3& translate):
 {
 }
 
+glm::vec3 OpT::deplace(const glm::vec3& p) const
+{
+    return p-trans;
+}
+
 /*************************************************************************************/
 
-bool OpT::inOut(const glm::vec3 &p) const
-{
-    return a->inOut(p-trans);
-}
-float OpT::potentiel(const glm::vec3& p) const
-{
-    return a->potentiel(p-trans);
-}
 
 /*bool OpT::intersect(const Rayon &r, float &distanceMin) const
 {

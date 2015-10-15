@@ -7,6 +7,7 @@
 class opMelange : public Node
 {
 public:
+    opMelange();
     opMelange(Node* prim);
     opMelange(Node* a, Node* b);
     opMelange(std::vector<Node*> prims);

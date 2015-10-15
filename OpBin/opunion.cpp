@@ -16,6 +16,11 @@ float OpUnion::potentiel(const glm::vec3& p) const
     return std::max(a->potentiel(p), b->potentiel(p));
 }
 
+float OpUnion::distance(const glm::vec3 &p) const
+{
+    return std::min(a->distance(p), b->distance(p));
+}
+
 /*bool OpUnion::intersect(const Rayon& r, float& t)
 {
     bool ba = a->intersect(r, t);

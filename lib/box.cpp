@@ -224,3 +224,14 @@ void Box::operator+=(const vec3& t)
     min += t;
     max += t;
 }
+
+
+/**************************************************************************/
+
+float Box::distance(const vec3 &p) const
+{
+    float dx = std::max(std::max(0.f, min.x - p.x), p.x - max.x); //soit en dessous de max, soit en dessus de min, soit entre les deux (dans ce cas, distance = 0)
+    float dy = std::max(std::max(0.f, min.y - p.y), p.y - max.y);
+    float dz = std::max(std::max(0.f, min.z - p.z), p.z - max.z);
+    return sqrt(dx*dx + dy*dy + dz*dz);
+}

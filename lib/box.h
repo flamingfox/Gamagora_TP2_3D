@@ -74,6 +74,14 @@ public:
      */
     void operator+=(const vec3& t);
 
+    /**
+     * @brief distance
+     * @param p un point de l'espace
+     * @return la distance minimale entre la box et le point
+     */
+    float distance(const vec3 &p) const;
+
+
 protected:
 
     /**

@@ -7,8 +7,9 @@
 class SI_Sphere : public SI_Primitive, public Sphere
 {
 public:
-    SI_Sphere(float rayonMin, float rayonMax);
-    SI_Sphere(const vec3& centre, float rayonMin, float rayonMax);
+    SI_Sphere(float rayonMin, float e = 1.f, float R = 1.f);
+    SI_Sphere(const vec3& centre, float rayonMin, float e = 1.f, float R = 1.f);
+    ~SI_Sphere();
 
     float potentiel(const glm::vec3& p) const;
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
