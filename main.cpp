@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     SI_Sphere* s1 = new SI_Sphere(2.0f, 1.f, 1.5f);
     SI_Sphere* s2 = new SI_Sphere(2.0f, 1.5f, 3.5f);
 
-    SI_Box* b1 = new SI_Box(vec3(0,-3,4.5), vec3(4,2,6), 1.0f,1.0f);
+    SI_Box* b1 = new SI_Box(vec3(0,-3,3.5), vec3(4,2,6), 1.0f,1.0f);
     //CSG_Sphere* s1 = new CSG_Sphere(2.f);
     //CSG_Sphere* s2 = new CSG_Sphere(1.5f);
 

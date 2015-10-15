@@ -110,9 +110,6 @@ bool Box::intersect(const Rayon &r, float &distanceMin, float &distanceMax) cons
 
     if(tmin>=0)
         distanceMin = tmin;
-    //else
-    //    return false; //inutile apparament
-    //distanceMin += 0.002;
 
     if(tmax>0)
         distanceMax = tmax;

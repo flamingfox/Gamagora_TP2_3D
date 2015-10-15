@@ -53,4 +53,14 @@ bool Sphere::inOut(const vec3& p) const
     return distance2(p,centre) <= rayon*rayon;
 }
 
+float Sphere::distance(const vec3& p) const
+{
+    float dst2 = glm::distance2(p, centre);
+
+    if(dst2 > rayon*rayon)
+        return sqrt(dst2)-rayon;
+    else
+        return 0;
+}
+
 

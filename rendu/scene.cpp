@@ -32,7 +32,7 @@ bool Scene::rendu(){
                 glm::vec3 p = c->getOrigine();
                 int i;
                 float dist = 0;
-                for(i = 0;  i < 64;    i++)
+                for(i = 0;  i < 256;    i++)
                 {
                     if(node->inOut(p)){
                         touche = true;

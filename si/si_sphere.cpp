@@ -30,10 +30,5 @@ float SI_Sphere::potentiel(const vec3 &p) const
 
 float SI_Sphere::distance(const vec3 &p) const
 {
-    float dst2 = glm::distance2(p, centre);
-
-    if(dst2 > rayonMin*rayonMin)
-        return sqrt(dst2)-rayonMin;
-    else
-        return 0;
+    return Sphere::distance(p);
 }
