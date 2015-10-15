@@ -16,8 +16,8 @@ public:
     float distance(const glm::vec3& p) const;
 
 protected:
-    /**rayon à partir d'où la sphère implicite sera forcément affiché*/
-    float rayonMin;
+    /**sphere englobante maximum dont l'énergie est toujours à 0.f en dehors*/
+    Sphere englob;
 };
 
 #endif // SI_SPHERE_H

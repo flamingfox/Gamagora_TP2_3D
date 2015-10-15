@@ -17,6 +17,8 @@ public:
     bool inOut(const vec3& p) const;
     float distance(const vec3 &p) const;
 
+    float getRayon() const;
+
     protected:
 
     vec3 centre;

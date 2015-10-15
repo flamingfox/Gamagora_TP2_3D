@@ -64,3 +64,8 @@ float Sphere::distance(const vec3& p) const
 }
 
 
+
+float Sphere::getRayon() const
+{
+    return rayon;
+}

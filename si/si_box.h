@@ -13,6 +13,9 @@ public:
     float potentiel(const glm::vec3& p) const;
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     float distance(const glm::vec3& p) const;
+
+protected:
+    Box englob;
 };
 
 #endif // SI_BOX_H
