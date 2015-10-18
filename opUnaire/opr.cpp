@@ -7,21 +7,27 @@ OpR::OpR(Node *a, const glm::vec3& axe, float angle):
 
 glm::vec3 OpR::deplace(const glm::vec3& p) const
 {
-    glm::vec3 v = p;
+
     if(angle != 0)
-    {
+        return rotate(p, -angle);
+    else
+        return p;
+}
+
+glm::vec3 OpR::rotate(const vec3& p, float angle) const
+{
+    glm::vec3 v;
         //axe2 = glm::normalize(axe);
 
-        v.x =   axe.x*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(-angle))+
-                p.x*cos(-angle)+
-                (-axe.z*p.y + axe.y*p.z) * sin(-angle);
-        v.y =   axe.y*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(-angle))+
-                p.y*cos(-angle)+
-                (axe.z*p.x - axe.x*p.z) * sin(-angle);
-        v.z =   axe.z*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(-angle))+
-                p.z*cos(-angle)+
-                (-axe.y*p.x + axe.x*p.y) * sin(-angle);
-    }
+        v.x =   axe.x*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(angle))+
+                p.x*cos(angle)+
+                (-axe.z*p.y + axe.y*p.z) * sin(angle);
+        v.y =   axe.y*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(angle))+
+                p.y*cos(angle)+
+                (axe.z*p.x - axe.x*p.z) * sin(angle);
+        v.z =   axe.z*(axe.x*p.x + axe.y*p.y + axe.z*p.z) * (1-cos(angle))+
+                p.z*cos(angle)+
+                (-axe.y*p.x + axe.x*p.y) * sin(angle);
     return v;
 }
 
@@ -64,3 +70,12 @@ glm::vec3 OpR::deplace(const glm::vec3& p) const
 
     return a->intersect(Rayon(o,d), distanceMin);
 }*/
+
+
+vec3 OpR::getNormal(const vec3 &p, float eps) const
+{
+    vec3 n = a->getNormal(deplace(p), eps);
+    if(angle != 0)
+        n = rotate(n,angle);
+    return n;
+}

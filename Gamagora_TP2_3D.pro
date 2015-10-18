@@ -1,9 +1,12 @@
 QT += core
 QT += gui
 
+
 TARGET = Gamagora_TP2_3D
 CONFIG += console
 CONFIG -= app_bundle
+
+LIBS += -lopengl32 -lglu32
 
 INCLUDEPATH += C:\lib
 INCLUDEPATH += C:\Developpement\glm
@@ -15,9 +18,9 @@ LIBS += -fopenmp
 
 TEMPLATE = app
 
-
 CONFIG  += c++11
 
+QT += opengl
 
 SOURCES += main.cpp \
     csg/csg_sphere.cpp \
@@ -38,6 +41,8 @@ SOURCES += main.cpp \
     node.cpp \
     opUnaire/opunaire.cpp \
     lib/voxel.cpp \
+    rendu/myglwidget.cpp \
+    rendu/mywindow.cpp \
     rendu/scene.cpp \
     si/si_sphere.cpp \
     lib/interpolation.cpp \
@@ -50,6 +55,7 @@ SOURCES += main.cpp \
     si/si_primitive.cpp \
     si/opmelange.cpp \
     si/si_box.cpp
+
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -70,6 +76,9 @@ HEADERS += \
     node.h \
     opUnaire/opunaire.h \
     lib/voxel.h \
+    rendu/myglwidget.h \
+    rendu/mywindow.h \
+    textures/herbe.jpg \
     rendu/scene.h \
     si/si_sphere.h \
     lib/interpolation.h \
@@ -83,3 +92,6 @@ HEADERS += \
     si/si_primitive.h \
     si/opmelange.h \
     si/si_box.h
+
+RESOURCES += \
+    myresources.qrc

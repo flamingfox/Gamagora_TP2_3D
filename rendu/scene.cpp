@@ -60,7 +60,7 @@ bool Scene::rendu(){
                         const vec3 p(ray.getOrigine()+dRay*dist);
                         const vec3 n(node->getNormal(p));
 
-                        double norm = dot(dRay, n);    //le rayon va normalement dans le sens inverse de la normal du triangle qu'il touche,
+                        double norm = -dot(dRay, n);    //le rayon va normalement dans le sens inverse de la normal du triangle qu'il touche,
 
                         QRgb color;
                         if(norm <= 0)

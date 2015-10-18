@@ -15,6 +15,8 @@ public:
     //virtual bool intersect(const Rayon& r, float &distance) const =0;
     float distance(const glm::vec3& p) const;
 
+    virtual vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const = 0;
+
 protected:
     Node *a, *b;
 };

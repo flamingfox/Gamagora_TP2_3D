@@ -25,3 +25,12 @@ float SI_Primitive::falloff( float r, float R ) const //fonction G du cours
   float y = (1.f-x*x);
   return y*y*y;
 }
+
+vec3 SI_Primitive::getNormal(const vec3& p, float eps) const
+{
+  float v = potentiel(p);
+  glm::vec3 n(  potentiel( glm::vec3(p.x+eps, p.y, p.z) ) - v,
+                potentiel( glm::vec3(p.x, p.y+eps, p.z) ) - v,
+                potentiel( glm::vec3(p.x, p.y, p.z+eps) ) - v);
+  return -normalize(n);
+}

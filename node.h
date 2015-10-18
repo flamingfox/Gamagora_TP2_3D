@@ -23,7 +23,7 @@ public:
 
     //virtual bool intersect(const Rayon& r, float &distance) const =0;
 
-    virtual glm::vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
+    virtual glm::vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const = 0;
 };
 
 #endif // NODE_H

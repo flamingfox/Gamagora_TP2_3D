@@ -23,6 +23,3 @@ float OpUnaire::distance(const glm::vec3 &p) const
 {
     return a->distance(deplace(p));
 }
-
-
-
