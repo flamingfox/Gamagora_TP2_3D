@@ -60,5 +60,8 @@ glm::vec3 opMelange::getNormal(const vec3& p, float eps) const
   glm::vec3 n(  potentiel( glm::vec3(p.x+eps, p.y, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y+eps, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y, p.z+eps) ) - v);
+  /*n += vec3(potentiel( glm::vec3(p.x-eps, p.y, p.z) ) - v,
+            potentiel( glm::vec3(p.x, p.y-eps, p.z) ) - v,
+            potentiel( glm::vec3(p.x, p.y, p.z-eps) ) - v);*/
   return -normalize(n);
 }

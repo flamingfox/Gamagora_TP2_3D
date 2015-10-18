@@ -13,6 +13,8 @@ public:
     //bool intersect(const Rayon &r, float &distanceMin) const;
     vec3 getNormal(const vec3 &p, float eps) const;
 
+    float distance(const glm::vec3 &p) const;
+
 private:
     glm::vec3 scale;
 
