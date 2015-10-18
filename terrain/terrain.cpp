@@ -54,11 +54,9 @@ bool Terrain::inOut(const vec3& pointXYZ) const
 {
     return (pointXYZ.z <= getHauteur(pointXYZ.x, pointXYZ.y));
 }
-bool Terrain::inOut(const vec3& pointXYZ, float& f) const
+float Terrain::potentiel(const glm::vec3& p) const
 {
-    bool b = (pointXYZ.z <= getHauteur(pointXYZ.x, pointXYZ.y));
-    f = (b == true  ?   1.f :   0.f);
-    return b;
+    return inOut(p) ?   1.f :   0.f;
 }
 
 bool Terrain::intersect(const Rayon& rayon, float &coeffDistance, int &i) const
@@ -171,7 +169,11 @@ void Terrain::getColor(float& r, float& g, float& b, float x, float y) const
 
 float Terrain::distance(const glm::vec3& p) const
 {
-    return 0;
+    float dist = box.distance(p);
+    if(dist > 0)
+        return dist+0.1f;   //on essaye de rentrer dans la box
+    else
+        return getHauteur(p)*0.3f;
 }
 
 

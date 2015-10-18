@@ -12,6 +12,8 @@
 #include "si/opmelange.h"
 #include "si/si_box.h"
 
+#include "terrain/terrainnoise.h"
+
 #include "QDebug"
 
 int main(int argc, char *argv[])
@@ -22,6 +24,7 @@ int main(int argc, char *argv[])
     SI_Sphere* s2 = new SI_Sphere(2.0f, 1.5f, 3.5f);
 
     SI_Box* b1 = new SI_Box(vec3(0,-3,3.5), vec3(4,2,6), 1.0f,1.0f);
+    //TerrainNoise* terre = new TerrainNoise(1000,1000);
     //CSG_Sphere* s1 = new CSG_Sphere(2.f);
     //CSG_Sphere* s2 = new CSG_Sphere(1.5f);
 
@@ -33,6 +36,7 @@ int main(int argc, char *argv[])
 
     opMelange oU(s1, &t);
     oU.addPrim(b1);
+    //oU.addPrim(new OpR(terre,vec3(1,0,0),M_PI/2));
 
     OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0.25);
 

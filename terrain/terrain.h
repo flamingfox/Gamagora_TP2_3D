@@ -139,10 +139,8 @@ public:
      */
     bool inOut(const glm::vec3& pointXYZ) const;
 
-
-    bool inOut(const glm::vec3& p, float& f) const;
     float distance(const glm::vec3& p) const;
-
+    float potentiel(const glm::vec3& p) const;
 
 protected:
 
