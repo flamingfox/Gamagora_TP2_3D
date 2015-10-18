@@ -1,6 +1,6 @@
 #include "opinter.h"
 
-OpInter::OpInter(CSG_Primitive* a, CSG_Primitive* b) :
+OpInter::OpInter(Node *a, Node *b) :
     OpBin(a, b)
 {
 
@@ -9,6 +9,17 @@ OpInter::OpInter(CSG_Primitive* a, CSG_Primitive* b) :
 bool OpInter::inOut(const glm::vec3& p) const
 {
     return (a->inOut(p) && b->inOut(p));
+}
+
+float OpInter::potentiel(const glm::vec3& p) const
+{
+    return std::min(a->potentiel(p), b->potentiel(p));
+
+}
+
+float OpInter::distance(const glm::vec3 &p) const
+{
+    return std::min(a->distance(p), b->distance(p));
 }
 
 /*bool OpInter::intersect(const Rayon& r, float& t)

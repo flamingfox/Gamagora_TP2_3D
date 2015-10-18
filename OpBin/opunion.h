@@ -6,10 +6,12 @@
 class OpUnion : public OpBin
 {
 public:
-    OpUnion(CSG_Primitive* a, CSG_Primitive* b );
+    OpUnion(Node* a, Node* b );
 
     bool inOut(const glm::vec3 &p) const;
-    bool intersect(const Rayon &r, float &t);
+    float potentiel(const glm::vec3& p) const;
+    float distance(const glm::vec3 &p) const;
+    //bool intersect(const Rayon &r, float &t);
 };
 
 #endif // OPUNION_H

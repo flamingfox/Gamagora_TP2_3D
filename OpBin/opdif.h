@@ -7,10 +7,12 @@
 class OpDif: public OpBin
 {
 public:
-    OpDif(CSG_Primitive* _a, CSG_Primitive* _b);
+    OpDif(Node* _a, Node* _b);
 
 
     bool inOut(const glm::vec3 &p) const;
+    float potentiel(const glm::vec3& p) const;
+    float distance(const glm::vec3 &p) const;
     //bool intersect(const Rayon &r, float &t);
 };
 

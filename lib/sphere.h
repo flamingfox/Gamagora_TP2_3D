@@ -15,8 +15,11 @@ public:
 
     bool intersect(const Rayon& r, float& minDist, float& maxDist) const;
     bool inOut(const vec3& p) const;
+    float distance(const vec3 &p) const;
 
-    private:
+    float getRayon() const;
+
+    protected:
 
     vec3 centre;
     float rayon;

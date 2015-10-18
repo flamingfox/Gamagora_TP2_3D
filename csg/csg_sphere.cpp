@@ -16,8 +16,20 @@ bool CSG_Sphere::inOut(const vec3& point) const
     return Sphere::inOut(point);
 }
 
+
+
 bool CSG_Sphere::intersect(const Rayon &r, float &distanceMin) const
 {
     float distanceMax;
     return Sphere::intersect(r, distanceMin, distanceMax);
+}
+
+float CSG_Sphere::distance(const vec3 &p) const
+{
+    float dst2 = glm::distance2(p, centre) - rayon*rayon;
+
+    if(dst2 > 0)
+        return sqrt(dst2);
+    else
+        return 0;
 }
