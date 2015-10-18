@@ -92,3 +92,6 @@ HEADERS += \
     si/si_primitive.h \
     si/opmelange.h \
     si/si_box.h
+
+RESOURCES += \
+    myresources.qrc

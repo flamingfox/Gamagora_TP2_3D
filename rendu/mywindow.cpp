@@ -10,7 +10,7 @@ void myWindow::initializeGL()
     _fx = 0.0;
     _speed =0.1;
 
-    loadTexture("C:\\Users/Rudi/Documents/GitHub/Gamagora_TP2_3D/textures/herbe.jpg");
+    loadTexture(":/textures/herbe");
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
