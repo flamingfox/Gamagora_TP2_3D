@@ -1,7 +1,6 @@
 #ifndef VOXEL_H
 #define VOXEL_H
-#include "QVector"
-
+#include "vector"
 class Voxel
 {
 public:
@@ -9,8 +8,11 @@ public:
     Voxel(int n);
 
     int operator()(int i, int j, int k)const{return v.at(i*_n*_n+j*_n+k);}
+    int& operator()(int i, int j, int k){return v[i*_n*_n+j*_n+k];}
+    inline int get_n()const{return _n;}
+
 private:
-    QVector<int>v;
+    std::vector<int>v;
     int _n;
 };
 

@@ -1,9 +1,12 @@
 QT += core
 QT += gui
 
+
 TARGET = Gamagora_TP2_3D
 CONFIG += console
 CONFIG -= app_bundle
+
+LIBS += -lopengl32 -lglu32
 
 INCLUDEPATH += C:\lib
 INCLUDEPATH += C:\Developpement\glm
@@ -11,9 +14,9 @@ INCLUDEPATH += C:\librairie\glm
 
 TEMPLATE = app
 
-
 CONFIG  += c++11
 
+QT += opengl
 
 SOURCES += main.cpp \
     csg/csg_sphere.cpp \
@@ -33,7 +36,9 @@ SOURCES += main.cpp \
     csg/csg_box.cpp \
     node.cpp \
     opUnaire/opunaire.cpp \
-    lib/voxel.cpp
+    lib/voxel.cpp \
+    rendu/myglwidget.cpp \
+    rendu/mywindow.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -53,4 +58,7 @@ HEADERS += \
     csg/csg_box.h \
     node.h \
     opUnaire/opunaire.h \
-    lib/voxel.h
+    lib/voxel.h \
+    rendu/myglwidget.h \
+    rendu/mywindow.h \
+    textures/herbe.jpg
