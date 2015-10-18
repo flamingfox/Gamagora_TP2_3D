@@ -50,18 +50,18 @@ inline float TerrainNoise::getHauteur2(float x, float y) const
     return h;
 }
 
-vec3 TerrainNoise::getNormal(float x, float y) const
+vec3 TerrainNoise::getNormal(float x, float y, float eps) const
 {
 
     float   ha = getHauteur2(x,y);
-    float   g = getHauteur2(x-RAYON_NORMAL,y),
-            d = getHauteur2(x+RAYON_NORMAL,y),
-            b = getHauteur2(x,y+RAYON_NORMAL),
-            h = getHauteur2(x,y-RAYON_NORMAL);
-    vec3        vg(-RAYON_NORMAL, 0, g-ha),
-                vd(RAYON_NORMAL, 0, d-ha),
-                vb(0, RAYON_NORMAL, b-ha),
-                vh(0, -RAYON_NORMAL, h-ha);
+    float   g = getHauteur2(x-eps,y),
+            d = getHauteur2(x+eps,y),
+            b = getHauteur2(x,y+eps),
+            h = getHauteur2(x,y-eps);
+    vec3        vg(-eps, 0, g-ha),
+                vd(eps, 0, d-ha),
+                vb(0, eps, b-ha),
+                vh(0, -eps, h-ha);
     float   distg = length(vg),
             distd = length(vd),
             distb = length(vb),

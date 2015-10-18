@@ -82,6 +82,9 @@ public:
     float distance(const vec3 &p) const;
 
 
+    vec3 getNormal(const vec3& p) const;
+
+
 protected:
 
     /**

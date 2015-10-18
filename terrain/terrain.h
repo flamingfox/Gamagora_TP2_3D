@@ -7,9 +7,6 @@
 #include "lib/box.h"
 #include "node.h"
 
-/** @brief délimite la distance des hauteurs à calculer autour d'une coordonnée du terrain pour déterminer sa normale*/
-#define RAYON_NORMAL 0.1f
-
 
 
 /**
@@ -118,19 +115,19 @@ public:
      * @param[in] y position en \e y de la normal à déterminer.
      * @return la hauteur du terrain à la position \e x, \e y. Si la position est hors map, la valeur sera un vecteur nul.
      */
-    virtual glm::vec3 getNormal(float x, float y) const = 0;
+    virtual glm::vec3 getNormal(float x, float y, float eps = RAYON_NORMAL) const = 0;
     /**
      * @brief Surchage de la methode getNormal(float x, float y).
      * @param[in] pointXY Un point comprenant uniquement les axes \e x, \e y.
      * @return la normal du terrain au point \e pointXY.
      */
-    glm::vec3 getNormal(const vec2& pointXY) const;
+    glm::vec3 getNormal(const vec2& pointXY, float eps = RAYON_NORMAL) const;
     /**
      * @brief Surchage de la methode getHauteur(const vec2& pointXY).
      * @param[in] pointXYZ Un point comprenant uniquement les axes \e x, \e y, \e z.
      * @return la normal du terrain au point \e pointXYZ.
      */
-    glm::vec3 getNormal(const vec3& pointXYZ) const;
+    glm::vec3 getNormal(const vec3& pointXYZ, float eps = RAYON_NORMAL) const;
 
     /**
      * @brief Test si le point \e pointXYZ est sous le terrain.

@@ -69,3 +69,9 @@ float Sphere::getRayon() const
 {
     return rayon;
 }
+
+
+vec3 Sphere::getNormal(const vec3& p) const
+{
+    return normalize(p-centre);
+}

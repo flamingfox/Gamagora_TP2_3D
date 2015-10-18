@@ -16,6 +16,10 @@ public:
     float potentiel(const glm::vec3& p) const;
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     virtual float distance(const glm::vec3& p) const =0;
+
+
+    vec3 getNormal(const vec3& p, float eps) const;
+    virtual vec3 getNormal(const vec3& p) const = 0;
 };
 
 #endif // CSG_PRIMITIVE_H

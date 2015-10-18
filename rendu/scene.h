@@ -4,6 +4,8 @@
 #include "camera.h"
 #include "./node.h"
 #include "QTime"
+#include "colorgradient.h"
+
 #include <QColor>
 #include <QImage>
 

@@ -232,3 +232,32 @@ float Box::distance(const vec3 &p) const
     float dz = std::max(std::max(0.f, min.z - p.z), p.z - max.z);
     return sqrt(dx*dx + dy*dy + dz*dz);
 }
+
+
+vec3 Box::getNormal(const vec3& p) const
+{
+    vec3 cote = (max-min); //taille des coté
+    vec3 centre(min+cote*0.5f);
+    vec3 n(p-centre);
+    n /= cote;  //la normal point dans la direction du cote le plus proche du point
+    vec3 na = abs(n);
+
+    int dir = 0;    //la normale est dans la direction de l'axe X
+    if(na.x < na.y)
+    {
+        if(na.y < na.z)
+            dir = 2;    //la normale est dans la direction de l'axe Z
+        else
+            dir = 1;    //la normale est dans la direction de l'axe Y
+    }
+    else if(na.x < na.z)
+        dir = 2;        //la normale est dans la direction de l'axe Z
+
+    switch(dir)
+    {
+        case 0: return (n.x < 0   ?   vec3(-1,0,0)    :   vec3(1,0,0));
+        case 1: return (n.y < 0   ?   vec3(0,-1,0)    :   vec3(0,1,0));
+        case 2: return (n.z < 0   ?   vec3(0,0,-1)    :   vec3(0,0,1));
+    }
+    return vec3(0,0,0);
+}
