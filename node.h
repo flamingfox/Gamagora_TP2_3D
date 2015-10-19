@@ -2,6 +2,7 @@
 #define NODE_H
 #include "rendu/rayon.h"
 #include <QRgb>
+#include "lib/box.h"
 
 
 /** @brief délimite la distance des hauteurs à calculer autour d'un point pour déterminer sa normale*/
@@ -30,6 +31,7 @@ public:
 
     virtual void setColor(const QRgb& color) = 0;
     virtual QRgb getColor(const vec3& p) const;
+    Box box;
 };
 
 #endif // NODE_H

@@ -56,7 +56,8 @@ int main(int argc, char *argv[])
 #if 1
     const int n = 50;
 
-    Voxel vox(n);
+    Voxel vox(n,node);
+    /*
     for(float i=0; i<n; i++){
         for(float j=0; j<n; j++){
             for(float k=0; k<n; k++){
@@ -67,7 +68,7 @@ int main(int argc, char *argv[])
                 else vox(i,j,k)=0;
             }
         }
-    }
+    }*/
 
     ObjManager::voxelSave("test.obj", vox);
 

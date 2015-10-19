@@ -91,15 +91,15 @@ void myWindow::paintGL()
     glLightiv(GL_LIGHT0,GL_POSITION,LightPos);
     glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 10);
 
-    glTranslatef(0.f, 0.f, -5.f);
+    glTranslatef(0.f, 0.f, -6.f);
     glRotated(10,1,0,0);
     glRotated(_fx,0,1,0);
-    glTranslatef(-2.f, -1.5f, 0.f);
 
-    for(float i2=0; i2<vox.get_n(); i2++){
-        for(float j2=0; j2<vox.get_n(); j2++){
-            for(float k2=0; k2<vox.get_n(); k2++){
-                if(vox(i2,j2,k2)==1){
+
+    for(float i2=-vox.get_n()/2.0; i2<vox.get_n()/2; i2++){
+        for(float j2=-vox.get_n()/2.0; j2<vox.get_n()/2; j2++){
+            for(float k2=-vox.get_n()/2.0; k2<vox.get_n()/2; k2++){
+                if(vox(i2+vox.get_n()/2,j2+vox.get_n()/2,k2+vox.get_n()/2)==1){
                     float scale = 0.1;
                     float i = i2*scale;
                     float j = j2*scale;
