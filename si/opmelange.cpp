@@ -87,3 +87,11 @@ QRgb opMelange::getColor(const vec3& p) const
     }
     return color;//somme;
 }
+
+Box opMelange::getBox() const
+{
+    Box box;
+    for(Node* prim : primitives)
+        box.merge(prim->getBox());
+    return box;
+}

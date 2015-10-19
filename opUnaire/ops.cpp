@@ -34,3 +34,9 @@ float OpS::distance(const glm::vec3 &p) const
     return scale.x * a->distance(deplace(p));
     //a revoir; marche quand le redimensionnement x==y==z
 }
+
+Box OpS::getBox() const
+{
+    Box box = a->getBox();
+    return Box(box.getMin()*scale, box.getMax()*scale);
+}

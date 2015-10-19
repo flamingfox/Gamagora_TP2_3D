@@ -75,3 +75,10 @@ vec3 Sphere::getNormal(const vec3& p) const
 {
     return normalize(p-centre);
 }
+
+
+Box Sphere::getBox() const
+{
+    vec3 tmp(rayon,rayon,rayon);
+    return Box(centre-tmp, centre+tmp);
+}

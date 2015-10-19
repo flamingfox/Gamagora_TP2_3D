@@ -46,14 +46,14 @@ int main(int argc, char *argv[])
 
     OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0.25);
 
-    OpS* node = new OpS(&oR, 0.3);
+    OpS* node = new OpS(&oR, 1.0);
 
     qDebug() << "in :" << oR.inOut(glm::vec3(0,0,0));
 
     qDebug() << "out :" << oR.inOut(glm::vec3(3,0,0));
 
 
-#if 1
+#if 0
     const int n = 50;
 
     Voxel vox(n,node);
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
         }
     }*/
 
-    ObjManager::voxelSave("test.obj", vox);
+    ObjManager::voxelSave("./test.obj", vox);
 
     myWindow myWin; //Ajout de notre classe myWindow
     myWin.vox = vox;
@@ -80,15 +80,17 @@ int main(int argc, char *argv[])
     return app.exec();
 
 #else
+    CSG_Box* box = new CSG_Box(node->getBox());
     Scene scene;
     //scene.setNode(new OpS(b1,0.5));//new OpUnion(b1,&oR));//
     //scene.setNode(new OpR(s1,vec3(0,0,1),2.0));//
 
     TerrainNoise* terre = new TerrainNoise(1000,1000);
+    //scene.setNode(new OpUnion(box,new OpUnion(node, new OpT(terre,vec3(-500,-500,-170)))));
     scene.setNode(new OpUnion(node, new OpT(terre,vec3(-500,-500,-170))));
 
     //scene.setNode(node);
-    scene.addC(new Camera(vec3(2,-5,0), vec3(0,0,2), 200,720,400));
+    scene.addC(new Camera(vec3(10,-10,0), vec3(0,0,2), 200,720,400));
     //scene.addC(new Camera(vec3(-10,-10,10), vec3(500,500,-300), 200,720,400));
     scene.rendu();
 

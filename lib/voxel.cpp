@@ -14,14 +14,13 @@ Voxel::Voxel(int n, Node *noeud):_n(n){
 bool Voxel::createvoxel(Node *noeud){
     float resx, resy, resz;
 
-    vec3 bornemin = noeud->box.get_min();
-    vec3 bornemax = noeud->box.get_max();
+    Box box = noeud->getBox();
+    vec3 bornemin = box.getMin();
+    vec3 bornemax = box.getMax();
 
     resx = (bornemax.x - bornemin.x)/_n;
     resy = (bornemax.y - bornemin.y)/_n;
     resz = (bornemax.z - bornemin.z)/_n;
-
-
 
     _resolution = resx;
     _resolution = (resy > _resolution) ? resy : _resolution;

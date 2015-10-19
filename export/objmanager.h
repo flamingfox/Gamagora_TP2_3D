@@ -1,13 +1,16 @@
 #ifndef OBJMANAGER_H
 #define OBJMANAGER_H
 
+
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+
 #include <glm/vec3.hpp>
 
 #include "lib/voxel.h"
 
-#include <fstream>
-#include <iostream>
-#include <iomanip>
 
 namespace ObjManager
 {

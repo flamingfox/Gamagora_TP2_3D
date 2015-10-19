@@ -33,3 +33,8 @@ float SI_Box::distance(const glm::vec3& p) const
 {
     return englob.distance(p);
 }
+
+Box SI_Box::getBox() const
+{
+    return englob;
+}

@@ -599,21 +599,21 @@ void writeToObj(const std::string name, const std::vector<glm::vec3> &vertex, co
     std::cout << name.c_str() << std::endl;
 
     std::ofstream obj;
-    std::cout << "ne marche pas en release" << std::endl;
+    std::cout << "ne marche pas en release 1" << std::endl;
     obj.open(name.c_str(), std::ios::out);
     //obj.open("test.obj", std::ios::out);
     std::cout << "ne marche pas en release 2" << std::endl;
 
     obj << "#vertices:\n";
 
-    for(int i = 0 ; i < vertex.size(); i++) {
+    for(unsigned int i = 0 ; i < vertex.size(); i++) {
         obj << "v " << std::setprecision(4) << vertex[i].x << " " << vertex[i].y << " " << vertex[i].z << "\n";
     }
 
 
     obj << "#faces:\n";
 
-    for(int i = 0 ; i < face.size(); i += 3){
+    for(unsigned int i = 0 ; i < face.size(); i += 3){
         obj << "f " << face[i] + 1 << " " << face[i+1] + 1 << " "<< face[i+2] + 1 << "\n";
 
     }

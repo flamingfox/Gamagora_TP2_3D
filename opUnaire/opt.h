@@ -13,6 +13,8 @@ public:
     //bool intersect(const Rayon &r, float &distanceMin) const;
     vec3 getNormal(const vec3 &p, float eps) const;
 
+    Box getBox() const;
+
 private:
     glm::vec3 trans;
 

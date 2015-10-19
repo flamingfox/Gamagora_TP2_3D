@@ -4,6 +4,7 @@
 #include "glm/vec3.hpp"
 #include "glm/gtx/norm.hpp"
 #include "rendu/rayon.h"
+#include "box.h"
 
 using namespace glm;
 
@@ -20,6 +21,8 @@ public:
     vec3 getNormal(const vec3& p) const;
 
     float getRayon() const;
+
+    Box getBox() const;
 
     protected:
 

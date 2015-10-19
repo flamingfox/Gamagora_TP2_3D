@@ -5,6 +5,12 @@ CSG_Box::CSG_Box(float cote):
 {
 }
 
+
+CSG_Box::CSG_Box(const Box& box):
+    Box(box)
+{
+}
+
 CSG_Box::CSG_Box(const vec3& _min, const vec3& _max)    :
     Box(_min,_max)
 {
@@ -46,4 +52,9 @@ float CSG_Box::distance(const vec3 &p) const
 vec3 CSG_Box::getNormal(const vec3& p) const
 {
     return Box::getNormal(p);
+}
+
+Box CSG_Box::getBox() const
+{
+    return *this;
 }

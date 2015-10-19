@@ -59,3 +59,10 @@ QRgb OpInter::getColor(const vec3& p) const
             std::min(qGreen(ca)*ea+qGreen(cb)*eb,255.f),
             std::min(qBlue(ca)*ea+qBlue(cb)*eb,255.f));
 }
+
+Box OpInter::getBox() const
+{
+    Box box = a->getBox();
+    box.merge(b->getBox());
+    return box;
+}

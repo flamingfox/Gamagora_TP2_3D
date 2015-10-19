@@ -31,7 +31,9 @@ public:
 
     virtual void setColor(const QRgb& color) = 0;
     virtual QRgb getColor(const vec3& p) const;
-    Box box;
+
+    virtual Box getBox() const = 0;
+
 };
 
 #endif // NODE_H

@@ -15,6 +15,8 @@ public:
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     float distance(const glm::vec3& p) const;
 
+    Box getBox() const;
+
 protected:
     /**sphere englobante maximum dont l'énergie est toujours à 0.f en dehors*/
     Sphere englob;

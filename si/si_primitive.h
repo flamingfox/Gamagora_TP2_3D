@@ -20,6 +20,8 @@ public:
     void setColor(const QRgb& color);
     QRgb getColor(const vec3& p) const;
 
+    virtual Box getBox() const = 0;
+
 protected:
     float e;    //energie
     float R;    //rayon d'action du squelette au dela duquel la primitive n'a plus d'impact

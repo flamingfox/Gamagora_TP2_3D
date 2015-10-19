@@ -38,3 +38,8 @@ vec3 CSG_Sphere::getNormal(const vec3& p) const
 {
     return Sphere::getNormal(p);
 }
+
+Box CSG_Sphere::getBox() const
+{
+    return Sphere::getBox();
+}
