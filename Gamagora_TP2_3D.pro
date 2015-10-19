@@ -1,7 +1,6 @@
 QT += core
 QT += gui
 
-
 TARGET = Gamagora_TP2_3D
 CONFIG += console
 CONFIG -= app_bundle
@@ -18,9 +17,11 @@ LIBS += -fopenmp
 
 TEMPLATE = app
 
+
 CONFIG  += c++11
 
 QT += opengl
+
 
 SOURCES += main.cpp \
     csg/csg_sphere.cpp \
@@ -54,8 +55,8 @@ SOURCES += main.cpp \
     rendu/colorgradient.cpp \
     si/si_primitive.cpp \
     si/opmelange.cpp \
-    si/si_box.cpp
-
+    si/si_box.cpp \
+    export/objmanager.cpp
 
 HEADERS += \
     csg/csg_sphere.h \
@@ -91,7 +92,8 @@ HEADERS += \
     rendu/colorgradient.h \
     si/si_primitive.h \
     si/opmelange.h \
-    si/si_box.h
+    si/si_box.h \
+    export/objmanager.h
 
 RESOURCES += \
     myresources.qrc

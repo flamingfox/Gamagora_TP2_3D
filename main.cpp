@@ -20,9 +20,11 @@
 #include "lib/voxel.h"
 #include "rendu/myWindow.h"
 
+#include "export/objmanager.h"
+
+
 int main(int argc, char *argv[])
 {
-
     QApplication app(argc, argv);
     /*CSG_Sphere* s1 = new CSG_Sphere(glm::vec3(0.f,0.f,0.f), 1.5f);
     CSG_Sphere* s2 = new CSG_Sphere(glm::vec3(2.f,0.f,0.f), 1.5f);
@@ -37,6 +39,8 @@ int main(int argc, char *argv[])
     s1->setColor(qRgb(255,50,50));
     s2->setColor(qRgb(50,255,50));
 
+    //CSG_Box c1(1.0);
+
     opMelange oU(s1, s2);
     oU.addPrim(b1);
 
@@ -49,13 +53,13 @@ int main(int argc, char *argv[])
     qDebug() << "out :" << oR.inOut(glm::vec3(3,0,0));
 
 
+#if 1
+    const int n = 50;
 
-#if 0
-    const int nb = 50;
-    Voxel vox(nb);
-    for(float i=0; i<nb; i++){
-        for(float j=0; j<nb; j++){
-            for(float k=0; k<nb; k++){
+    Voxel vox(n);
+    for(float i=0; i<n; i++){
+        for(float j=0; j<n; j++){
+            for(float k=0; k<n; k++){
                 if(node->inOut(glm::vec3(-1.5+(i/10.0),-1.5+(j/10.),-1.5+(k/10.))))
                 {
                     vox(i,j,k)=1;
@@ -64,6 +68,8 @@ int main(int argc, char *argv[])
             }
         }
     }
+
+    ObjManager::voxelSave("test.obj", vox);
 
     myWindow myWin; //Ajout de notre classe myWindow
     myWin.vox = vox;
