@@ -33,3 +33,8 @@ float CSG_Sphere::distance(const vec3 &p) const
     else
         return 0;
 }
+
+vec3 CSG_Sphere::getNormal(const vec3& p) const
+{
+    return Sphere::getNormal(p);
+}

@@ -18,6 +18,8 @@ public:
     float potentiel(const glm::vec3& p) const;
     float distance(const glm::vec3& p) const;
 
+    vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
+
 protected:
     std::vector<Node*> primitives;
 };

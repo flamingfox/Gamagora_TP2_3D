@@ -37,3 +37,9 @@ float OpInter::distance(const glm::vec3 &p) const
     return false;
 }*/
 
+glm::vec3 OpInter::getNormal(const vec3& p, float eps) const
+{
+    return a->getNormal(p,eps);
+    //à revoir
+}
+

@@ -15,6 +15,8 @@ public:
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     virtual float distance(const glm::vec3& p) const =0;
 
+    vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
+
 protected:
     float e;    //energie
     float R;    //rayon d'action du squelette au dela duquel la primitive n'a plus d'impact

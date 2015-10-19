@@ -42,3 +42,8 @@ float CSG_Box::distance(const vec3 &p) const
     if(p.z - max.z < dz)
         dz = p.z - max.z;*/
 
+
+vec3 CSG_Box::getNormal(const vec3& p) const
+{
+    return Box::getNormal(p);
+}

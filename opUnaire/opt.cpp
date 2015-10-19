@@ -17,3 +17,8 @@ glm::vec3 OpT::deplace(const glm::vec3& p) const
 {
     return a->intersect(Rayon(r.getOrigine()-trans, r.getDirection()), distanceMin);
 }*/
+
+vec3 OpT::getNormal(const vec3 &p, float eps) const
+{
+    return a->getNormal(deplace(p), eps);
+}

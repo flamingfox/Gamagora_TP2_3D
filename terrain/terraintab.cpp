@@ -65,25 +65,25 @@ float TerrainTab::getHauteur(float x, float y) const
 
 
 
-vec3 TerrainTab::getNormal(float x, float y) const
+vec3 TerrainTab::getNormal(float x, float y, float eps) const
 {
 
     if(x < 0 || y < 0 || x > largeur || y > longueur)
         return vec3(0,0,1);
 
     float ha = getHauteur(x,y);
-    float   xg = std::max(x-RAYON_NORMAL, 0.f),
-            xd = std::min(x+RAYON_NORMAL, largeur),
-            yb = std::min(y+RAYON_NORMAL, longueur),
-            yh = std::max(y-RAYON_NORMAL, 0.f);
+    float   xg = std::max(x-eps, 0.f),
+            xd = std::min(x+eps, largeur),
+            yb = std::min(y+eps, longueur),
+            yh = std::max(y-eps, 0.f);
     float       g = getHauteur(xg,y),
                 d = getHauteur(xd,y),
                 b = getHauteur(x,yb),
                 h = getHauteur(x,yh);
-    vec3    vg(-RAYON_NORMAL, 0, g-ha),
-            vd(RAYON_NORMAL, 0, d-ha),
-            vb(0, RAYON_NORMAL, b-ha),
-            vh(0, -RAYON_NORMAL, h-ha);
+    vec3    vg(-eps, 0, g-ha),
+            vd(eps, 0, d-ha),
+            vb(0, eps, b-ha),
+            vh(0, -eps, h-ha);
     float       distg = length(vg),
                 distd = length(vd),
                 distb = length(vb),

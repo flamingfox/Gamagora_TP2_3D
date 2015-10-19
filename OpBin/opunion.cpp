@@ -36,3 +36,11 @@ float OpUnion::distance(const glm::vec3 &p) const
         return ba;
 }*/
 
+vec3 OpUnion::getNormal(const vec3& p, float eps) const
+{
+    if(a->distance(p) <= b->distance(p))
+        return a->getNormal(p, eps);
+    else
+        return b->getNormal(p, eps);
+}
+

@@ -35,24 +35,26 @@ float Terrain::getHauteur(const vec3& pointXYZ) const
 /**********************************************************/
 
 
-vec3 Terrain::getNormal(const vec2& pointXY) const
+vec3 Terrain::getNormal(const vec2& pointXY, float eps) const
 {
-    return getNormal(pointXY.x, pointXY.y);
+    return getNormal(pointXY.x, pointXY.y, eps);
 }
 
 
-vec3 Terrain::getNormal(const vec3& pointXYZ) const
+vec3 Terrain::getNormal(const vec3& pointXYZ, float eps) const
 {
-    return getNormal(pointXYZ.x, pointXYZ.y);
+    return getNormal(pointXYZ.x, pointXYZ.y, eps);
 }
-
 
 /**********************************************************/
 
 
 bool Terrain::inOut(const vec3& pointXYZ) const
 {
-    return (pointXYZ.z <= getHauteur(pointXYZ.x, pointXYZ.y));
+    if(pointXYZ.z < 0)
+        return false;
+    float h = getHauteur(pointXYZ.x, pointXYZ.y);
+    return h != HAUTEUR_HORS_MAP && pointXYZ.z <= h; //
 }
 float Terrain::potentiel(const glm::vec3& p) const
 {
@@ -73,7 +75,7 @@ bool Terrain::intersect(const Rayon& rayon, float &coeffDistance, int &i) const
 
     coeffDistance = dmin;
 
-    for(i = 0;  i<256;  i++)
+    for(i = 0;  i<128;  i++)
     {
         vec3 pos = rayon.getOrigine() + coeffDistance*rayon.getDirection();
         float h = getHauteur( pos );
@@ -173,7 +175,7 @@ float Terrain::distance(const glm::vec3& p) const
     if(dist > 0)
         return dist+0.1f;   //on essaye de rentrer dans la box
     else
-        return getHauteur(p)*0.3f;
+        return (p.z-getHauteur(p))*0.3f;
 }
 
 

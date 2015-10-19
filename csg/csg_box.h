@@ -14,6 +14,8 @@ public:
     bool intersect(const Rayon &r, float &distanceMin) const;
     float distance(const glm::vec3& p) const;
 
+    vec3 getNormal(const vec3& p) const;
+
 private:
 };
 
