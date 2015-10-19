@@ -14,7 +14,8 @@
 
 namespace ObjManager
 {
-    void voxelSave(const std::string name, const Voxel& vox);
+    void voxelSave(const std::string name, const Voxel &vox);
+
 
     void writeToObj(const std::string name, const std::vector<glm::vec3>& vertex, const std::vector<unsigned int>& face);
 }
