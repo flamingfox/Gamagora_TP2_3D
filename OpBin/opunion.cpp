@@ -51,3 +51,10 @@ QRgb OpUnion::getColor(const vec3& p) const
     else
         return b->getColor(p);
 }
+
+Box OpUnion::getBox() const
+{
+    Box box = a->getBox();
+    box.merge(b->getBox());
+    return box;
+}

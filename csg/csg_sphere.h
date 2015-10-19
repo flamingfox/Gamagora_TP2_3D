@@ -15,6 +15,7 @@ public:
     float distance(const vec3& p) const;
 
     vec3 getNormal(const vec3& p) const;
+    Box getBox() const;
 };
 
 #endif // CSG_SPHERE_H

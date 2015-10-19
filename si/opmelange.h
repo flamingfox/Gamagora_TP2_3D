@@ -24,6 +24,8 @@ public:
     void setColor(const QRgb& color);
     QRgb getColor(const vec3& p) const;
 
+    Box getBox() const;
+
 protected:
     std::vector<Node*> primitives;
 };

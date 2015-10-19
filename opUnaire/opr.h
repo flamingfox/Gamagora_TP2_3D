@@ -12,6 +12,7 @@ public:
 
     //bool intersect(const Rayon &r, float &distanceMin) const;
     vec3 getNormal(const vec3 &p, float eps) const;
+    Box getBox() const;
 
 private:
     //glm::vec3 centre;     //a vec3(0,0,0) pour être plus logique avec les fonctions de rotation des logiciels de synthèse.

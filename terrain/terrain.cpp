@@ -225,3 +225,9 @@ QRgb Terrain::getColor(const vec3& p) const
     getColor(r,g,b, p.x,p.y);
     return qRgb(r*255,g*255,b*255);
 }
+
+
+Box Terrain::getBox() const
+{
+    return box;
+}

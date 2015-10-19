@@ -22,3 +22,9 @@ vec3 OpT::getNormal(const vec3 &p, float eps) const
 {
     return a->getNormal(deplace(p), eps);
 }
+
+Box OpT::getBox() const
+{
+    Box box = a->getBox();
+    return Box(box.getMin()+trans, box.getMax()+trans);
+}

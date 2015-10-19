@@ -33,3 +33,8 @@ float SI_Sphere::distance(const vec3 &p) const
 {
     return englob.distance(p);
 }
+
+Box SI_Sphere::getBox() const
+{
+    return englob.getBox();
+}

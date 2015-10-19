@@ -16,6 +16,8 @@ public:
     vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
     QRgb getColor(const vec3& p) const;
 
+    Box getBox() const;
+
 };
 
 #endif // OPUNION_H

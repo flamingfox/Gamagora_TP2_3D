@@ -14,6 +14,8 @@ public:
     //virtual bool intersect(const Rayon& r, float &distance) const = 0;
     float distance(const glm::vec3& p) const;
 
+    Box getBox() const;
+
 protected:
     Box englob;
 };

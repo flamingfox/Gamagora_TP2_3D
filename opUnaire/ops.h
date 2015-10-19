@@ -16,6 +16,8 @@ public:
 
     float distance(const glm::vec3 &p) const;
 
+    Box getBox() const;
+
 private:
     glm::vec3 scale;
 

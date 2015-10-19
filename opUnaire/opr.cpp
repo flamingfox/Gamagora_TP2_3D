@@ -79,3 +79,24 @@ vec3 OpR::getNormal(const vec3 &p, float eps) const
         n = rotate(n,angle);
     return n;
 }
+
+Box OpR::getBox() const
+{
+    Box b = a->getBox();
+    if(angle == 0)
+        return b;
+
+    vec3 min = b.getMin(),  max = b.getMax();
+
+    Box box;
+    box.updatePoint(rotate(min,angle));
+    box.updatePoint(rotate(max,angle));
+    box.updatePoint(rotate(vec3(min.x,min.y,max.z),angle));
+    box.updatePoint(rotate(vec3(min.x,max.y,min.z),angle));
+    box.updatePoint(rotate(vec3(min.x,max.y,max.z),angle));
+    box.updatePoint(rotate(vec3(max.x,min.y,min.z),angle));
+    box.updatePoint(rotate(vec3(max.x,min.y,max.z),angle));
+    box.updatePoint(rotate(vec3(max.x,max.y,min.z),angle));
+
+    return box;
+}

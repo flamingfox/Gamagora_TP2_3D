@@ -36,3 +36,8 @@ QRgb OpDif::getColor(const vec3& p) const
 {
     return a->getColor(p);
 }
+
+Box OpDif::getBox() const
+{
+    return a->getBox();
+}

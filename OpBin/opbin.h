@@ -20,6 +20,7 @@ public:
 
     void setColor(const QRgb& color);
     virtual QRgb getColor(const vec3& p) const = 0;
+    virtual Box getBox() const = 0;
 
 protected:
     Node *a, *b;

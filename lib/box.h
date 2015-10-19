@@ -84,6 +84,8 @@ public:
 
     vec3 getNormal(const vec3& p) const;
 
+    vec3 getMin() const;
+    vec3 getMax() const;
 
 protected:
 
