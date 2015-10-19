@@ -261,14 +261,3 @@ vec3 Box::getNormal(const vec3& p) const
     }
     return vec3(0,0,0);
 }
-
-
-vec3 Box::getMin() const
-{
-    return min;
-}
-
-vec3 Box::getMax() const
-{
-    return max;
-}

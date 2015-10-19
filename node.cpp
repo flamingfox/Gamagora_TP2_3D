@@ -2,7 +2,6 @@
 
 Node::Node()
 {
-    box = Box(vec3(-1.5,-1.5,-1.5),vec3(1.5,1.5,1.5));
 }
 
 Node::~Node(){

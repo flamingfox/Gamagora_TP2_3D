@@ -18,7 +18,7 @@ public:
     Voxel vox;
 
 private:
-
+    float _zoom = -6.0;
     GLuint texture[1];
     float _fx;
     float _speed;

@@ -44,31 +44,19 @@ int main(int argc, char *argv[])
     opMelange oU(s1, s2);
     oU.addPrim(b1);
 
-    OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0.25);
+    OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0.0);
 
-    OpS* node = new OpS(&oR, 1.0);
+    OpS* node = new OpS(&oR, 0.3);
 
     qDebug() << "in :" << oR.inOut(glm::vec3(0,0,0));
 
     qDebug() << "out :" << oR.inOut(glm::vec3(3,0,0));
 
 
-#if 0
+#if 1
     const int n = 50;
 
     Voxel vox(n,node);
-    /*
-    for(float i=0; i<n; i++){
-        for(float j=0; j<n; j++){
-            for(float k=0; k<n; k++){
-                if(node->inOut(glm::vec3(-1.5+(i/10.0),-1.5+(j/10.),-1.5+(k/10.))))
-                {
-                    vox(i,j,k)=1;
-                }
-                else vox(i,j,k)=0;
-            }
-        }
-    }*/
 
     ObjManager::voxelSave("./test.obj", vox);
 
