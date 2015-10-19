@@ -212,3 +212,16 @@ float Terrain::distance(const glm::vec3& p) const
     return false;
 }*/
 
+
+void Terrain::setColor(const QRgb& color)
+{
+    std::cerr << "le terrain ne doit pas changer de couleur" << std::endl;
+    (void) color;
+}
+
+QRgb Terrain::getColor(const vec3& p) const
+{
+    float r,g,b;
+    getColor(r,g,b, p.x,p.y);
+    return qRgb(r*255,g*255,b*255);
+}

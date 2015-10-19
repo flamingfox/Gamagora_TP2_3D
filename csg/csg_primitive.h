@@ -20,6 +20,12 @@ public:
 
     vec3 getNormal(const vec3& p, float eps) const;
     virtual vec3 getNormal(const vec3& p) const = 0;
+
+    void setColor(const QRgb& color);
+    QRgb getColor(const vec3& p) const;
+
+private:
+    QRgb color = DEFAULT_COLOR;
 };
 
 #endif // CSG_PRIMITIVE_H

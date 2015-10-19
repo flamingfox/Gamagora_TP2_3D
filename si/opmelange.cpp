@@ -31,7 +31,7 @@ opMelange* opMelange::addPrim(Node* prim)
 
 bool opMelange::inOut(const vec3 &p) const
 {
-    return potentiel(p) >= 0.5f;
+    return potentiel(p) >= DEFAULT_T;
 }
 
 
@@ -60,8 +60,30 @@ glm::vec3 opMelange::getNormal(const vec3& p, float eps) const
   glm::vec3 n(  potentiel( glm::vec3(p.x+eps, p.y, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y+eps, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y, p.z+eps) ) - v);
-  /*n += vec3(potentiel( glm::vec3(p.x-eps, p.y, p.z) ) - v,
+  n -= vec3(potentiel( glm::vec3(p.x-eps, p.y, p.z) ) - v,
             potentiel( glm::vec3(p.x, p.y-eps, p.z) ) - v,
-            potentiel( glm::vec3(p.x, p.y, p.z-eps) ) - v);*/
+            potentiel( glm::vec3(p.x, p.y, p.z-eps) ) - v);
   return -normalize(n);
+}
+
+
+void opMelange::setColor(const QRgb& color)
+{
+    for(Node* prim : primitives)
+        prim->setColor(color);
+}
+
+//#include <QColor>
+QRgb opMelange::getColor(const vec3& p) const
+{
+    QRgb color = qRgb(0,0,0);
+    //float somme;
+    for(const Node* prim : primitives)
+    {
+        //float e = prim->potentiel(p);
+        QRgb c = prim->getColor(p);
+        //QColor col(c);
+        color = qRgb(std::min(qRed(color)+qRed(c),255),std::min(qGreen(color)+qGreen(c),255),std::min(qBlue(color)+qBlue(c),255));
+    }
+    return color;//somme;
 }

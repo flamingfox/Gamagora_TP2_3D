@@ -12,7 +12,7 @@ SI_Primitive::SI_Primitive(float e, float R):
 
 bool SI_Primitive::inOut(const glm::vec3 &p) const
 {
-    return potentiel(p) >= 0.5f;
+    return potentiel(p) >= DEFAULT_T;
 }
 
 
@@ -32,8 +32,21 @@ vec3 SI_Primitive::getNormal(const vec3& p, float eps) const
   glm::vec3 n(  potentiel( glm::vec3(p.x+eps, p.y, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y+eps, p.z) ) - v,
                 potentiel( glm::vec3(p.x, p.y, p.z+eps) ) - v);
-  /*n += vec3(potentiel( glm::vec3(p.x-eps, p.y, p.z) ) - v,
+  n -= vec3(potentiel( glm::vec3(p.x-eps, p.y, p.z) ) - v,
             potentiel( glm::vec3(p.x, p.y-eps, p.z) ) - v,
-            potentiel( glm::vec3(p.x, p.y, p.z-eps) ) - v);*/
+            potentiel( glm::vec3(p.x, p.y, p.z-eps) ) - v);
   return -normalize(n);
+}
+
+
+void SI_Primitive::setColor(const QRgb& color)
+{
+    this->color = color;
+}
+
+QRgb SI_Primitive::getColor(const vec3& p) const
+{
+    float e1 = potentiel(p)/DEFAULT_T;
+    return qRgb(std::min(qRed(color)*e1,255.f),std::min(qGreen(color)*e1,255.f),std::min(qBlue(color)*e1,255.f));
+    (void) p;
 }

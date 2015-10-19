@@ -9,6 +9,7 @@ class OpS: public OpUnaire
 {
 public:
     OpS(Node* a, const glm::vec3& scale);
+    OpS(Node* a, float scale);
 
     //bool intersect(const Rayon &r, float &distanceMin) const;
     vec3 getNormal(const vec3 &p, float eps) const;

@@ -139,6 +139,10 @@ public:
     float distance(const glm::vec3& p) const;
     float potentiel(const glm::vec3& p) const;
 
+
+    void setColor(const QRgb& color);
+    QRgb getColor(const vec3& p) const;
+
 protected:
 
 

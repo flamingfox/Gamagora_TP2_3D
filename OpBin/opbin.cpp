@@ -16,3 +16,10 @@ float OpBin::distance(const glm::vec3 &p) const
 {
     return std::min(a->distance(p) , b->distance(p));
 }
+
+
+void OpBin::setColor(const QRgb& color)
+{
+    a->setColor(color);
+    b->setColor(color);
+}

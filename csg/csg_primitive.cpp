@@ -20,3 +20,14 @@ vec3 CSG_Primitive::getNormal(const vec3& p, float eps) const
     return getNormal(p);
     (void) eps;
 }
+
+void CSG_Primitive::setColor(const QRgb& color)
+{
+    this->color = color;
+}
+
+QRgb CSG_Primitive::getColor(const vec3& p) const
+{
+    return color;
+    (void) p;
+}

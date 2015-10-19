@@ -20,6 +20,10 @@ public:
 
     vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
 
+
+    void setColor(const QRgb& color);
+    QRgb getColor(const vec3& p) const;
+
 protected:
     std::vector<Node*> primitives;
 };

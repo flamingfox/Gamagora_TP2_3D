@@ -44,3 +44,10 @@ vec3 OpUnion::getNormal(const vec3& p, float eps) const
         return b->getNormal(p, eps);
 }
 
+QRgb OpUnion::getColor(const vec3& p) const
+{
+    if(a->distance(p) <= b->distance(p))
+        return a->getColor(p);
+    else
+        return b->getColor(p);
+}

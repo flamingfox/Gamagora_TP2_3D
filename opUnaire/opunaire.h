@@ -18,6 +18,10 @@ public:
 
     virtual vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const = 0;
 
+
+    void setColor(const QRgb& color);
+    QRgb getColor(const vec3& p) const;
+
 protected:
     Node* a;   //à remplacer par une Node* pour la suite
 

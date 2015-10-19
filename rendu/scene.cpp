@@ -35,7 +35,7 @@ bool Scene::rendu(){
                 glm::vec3 p = c->getOrigine();
                 int i;
                 float dist = 0;
-                for(i = 0;  i < 128;    i++)
+                for(i = 0;  i < 256;    i++)
                 {
                     if(node->inOut(p)){
                         touche = true;
@@ -67,8 +67,9 @@ bool Scene::rendu(){
                             color = qRgb(0,0,0); //Black
                         else
                         {
-                            float c = 255*norm;
-                            color = qRgb(roundf(c),roundf(c), roundf(c)); // Grey
+                            //float c = 255*norm;
+                            QRgb c = node->getColor(p);
+                            color = qRgb(qRed(c)*norm,qGreen(c)*norm, qBlue(c)*norm); // Grey
                         }
                         img->setPixel(x,y, color);
 
@@ -76,7 +77,7 @@ bool Scene::rendu(){
                 }
 
                 float r,v,b;
-                grad.getColorAtValue(i/128.0f,r,v,b);
+                grad.getColorAtValue(i/255.0f,r,v,b);
                 eric.setPixel(x,y, qRgb(r*255,v*255,b*255));
             }
         }

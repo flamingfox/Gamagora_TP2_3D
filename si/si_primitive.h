@@ -17,11 +17,17 @@ public:
 
     vec3 getNormal(const vec3& p, float eps = RAYON_NORMAL) const;
 
+    void setColor(const QRgb& color);
+    QRgb getColor(const vec3& p) const;
+
 protected:
     float e;    //energie
     float R;    //rayon d'action du squelette au dela duquel la primitive n'a plus d'impact
 
     float falloff( float r, float R ) const;
+
+private:
+    QRgb color = DEFAULT_COLOR;
 };
 
 #endif // SI_PRIMITIVE_H

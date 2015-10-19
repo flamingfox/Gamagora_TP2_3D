@@ -30,3 +30,9 @@ glm::vec3 OpDif::getNormal(const vec3& p, float eps) const
         return b->getNormal(p,eps);
         //à revoir.
 }
+
+
+QRgb OpDif::getColor(const vec3& p) const
+{
+    return a->getColor(p);
+}
