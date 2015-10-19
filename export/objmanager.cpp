@@ -129,14 +129,8 @@ void voxelSave(const std::string name, const Voxel &vox){
 
 void writeToObj(const std::string name, const std::vector<glm::vec3> &vertex, const std::vector<unsigned int> &face)
 {
-    std::cout << "marche en release" << std::endl;
-    std::cout << name.c_str() << std::endl;
-
     std::ofstream obj;
-    std::cout << "ne marche pas en release 1" << std::endl;
     obj.open(name.c_str(), std::ios::out);
-    //obj.open("test.obj", std::ios::out);
-    std::cout << "ne marche pas en release 2" << std::endl;
 
     obj << "#vertices:\n";
 

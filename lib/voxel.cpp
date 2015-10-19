@@ -26,7 +26,7 @@ bool Voxel::createvoxel(Node *noeud){
     _resolution = (resy > _resolution) ? resy : _resolution;
     _resolution = (resz > _resolution) ? resz : _resolution;
 
-    qDebug()<<_resolution;
+    //qDebug()<<_resolution;
     for(float i=0; i<_n; i++){
         for(float j=0; j<_n; j++){
             for(float k=0; k<_n; k++){
