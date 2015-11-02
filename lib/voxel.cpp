@@ -18,9 +18,9 @@ bool Voxel::createvoxel(Node *noeud){
     vec3 bornemin = box.getMin();
     vec3 bornemax = box.getMax();
 
-    resx = (bornemax.x - bornemin.x)/_n;
-    resy = (bornemax.y - bornemin.y)/_n;
-    resz = (bornemax.z - bornemin.z)/_n;
+    resx = (bornemax.x - bornemin.x)/(_n-1);
+    resy = (bornemax.y - bornemin.y)/(_n-1);
+    resz = (bornemax.z - bornemin.z)/(_n-1);
 
     _resolution = resx;
     _resolution = (resy > _resolution) ? resy : _resolution;

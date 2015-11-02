@@ -58,7 +58,7 @@ void voxelSave(const std::string name, const Voxel &vox){
                         face.push_back(s2);
                     }
 
-                    if(k == nb || vox(i,j,k+1) == 0){
+                    if(k == nb-1 || vox(i,j,k+1) == 0){
                         //** Face s1,s5,s6,s2 **//
                         face.push_back(s1);
                         face.push_back(s5);
@@ -69,7 +69,7 @@ void voxelSave(const std::string name, const Voxel &vox){
                         face.push_back(s6);
                     }
 
-                    if(i == nb || vox(i+1,j,k) == 0){
+                    if(i == nb-1 || vox(i+1,j,k) == 0){
                         //** Face s5,s4,s7,s6 **//
                         face.push_back(s5);
                         face.push_back(s4);
@@ -102,10 +102,9 @@ void voxelSave(const std::string name, const Voxel &vox){
                         face.push_back(s1);
                         face.push_back(s4);
                         face.push_back(s0);
-
                     }
 
-                    if(j == nb || vox(i,j+1,k) == 0){
+                    if(j == nb-1 || vox(i,j+1,k) == 0){
 
                         //** Face s3,s2,s6,s7 **//
                         face.push_back(s3);
@@ -115,11 +114,8 @@ void voxelSave(const std::string name, const Voxel &vox){
                         face.push_back(s7);
                         face.push_back(s2);
                         face.push_back(s6);
-
                     }
-
                 }
-
             }
         }
     }

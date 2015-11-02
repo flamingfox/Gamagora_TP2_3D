@@ -101,7 +101,7 @@ void myWindow::paintGL()
     glRotated(10,1,0,0);
     glRotated(_fx,0,1,0);
 
-    while(1){
+    /*while(1){
         int x,y,z;
         x = rand()%vox.get_n();
         y = rand()%vox.get_n();
@@ -110,7 +110,7 @@ void myWindow::paintGL()
             vox(x,y,z)=0;
             break;
         }
-    }
+    }*/
 
     for(float i2=-vox.get_n()/2.0; i2<vox.get_n()/2; i2++){
         for(float j2=-vox.get_n()/2.0; j2<vox.get_n()/2; j2++){
