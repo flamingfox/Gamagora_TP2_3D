@@ -26,68 +26,76 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    /*CSG_Sphere* s1 = new CSG_Sphere(glm::vec3(0.f,0.f,0.f), 1.5f);
-    CSG_Sphere* s2 = new CSG_Sphere(glm::vec3(2.f,0.f,0.f), 1.5f);
-    CSG_Box* b1 = new CSG_Box(vec3(0,-3,3.5), vec3(4,2,6));*/
 
-    SI_Box* b1 = new SI_Box(vec3(0,-3,3.5), vec3(4,2,6), 0.75f,2.0f);
-    SI_Sphere* s1 = new SI_Sphere(2.0f, 1.f, 1.5f);
-    SI_Sphere* s2 = new SI_Sphere(vec3(4,0,0),2.0f, 1.5f, 3.5f);
+    CSG_Sphere sc1 = CSG_Sphere(glm::vec3(0.f,0.f,0.f), 2.5f);
+    CSG_Box bc1 = CSG_Box(glm::vec3(2.f,0.f,0.f), glm::vec3(4.f, 2.f, 2.f));
 
+    OpUnion oUC  = OpUnion(&sc1, &bc1);
 
-    b1->setColor(qRgb(50,50,255));
-    s1->setColor(qRgb(255,50,50));
-    s2->setColor(qRgb(50,255,50));
+    OpT oTC = OpT(&oUC, vec3(0.0,0.0,3.0) );
 
-    //CSG_Box c1(1.0);
+    SI_Sphere ss1 = SI_Sphere(2.0f, 1.f, 1.5f);
+    SI_Sphere ss2 = SI_Sphere(vec3(4,0,0),2.0f, 1.5f, 3.5f);
 
-    opMelange oU(s1, s2);
-    oU.addPrim(b1);
+    ss1.setColor(qRgb(255,50,50));
+    ss2.setColor(qRgb(50,255,50));
 
-    OpR oR(&oU, glm::normalize(glm::vec3(0,0,1)), 3.14f*0.0);
+    opMelange oMS(&ss1, &ss2);
 
-    OpS* node = new OpS(&oR, 0.3);
+    OpUnion oU = OpUnion(&oTC, &oMS);
 
-    qDebug() << "in :" << oR.inOut(glm::vec3(0,0,0));
+    OpR oR = OpR(&oU, vec3(0,0,1), 3.14*1.25);
 
-    qDebug() << "out :" << oR.inOut(glm::vec3(3,0,0));
+    OpS node = OpS(&oR, 1.0);
 
 
-#if 1
-    const int n = 50;
+/*
+ * test = 0 : Visualisation du voxel sous OpenGL
+ * test = 1 : Rendu jpg du lancé de rayons sur SI+CSG+TERRAIN
+ * test = 2 : Export du voxel en Mesh (obj)
+ */
 
-    Voxel vox(n,node);
+#define test 1
 
-    ObjManager::voxelSave("./test.obj", vox);
+#if(test == 0)
+    const int n = 75;
+
+    Voxel vox(n, &node);
 
     myWindow myWin; //Ajout de notre classe myWindow
     myWin.vox = vox;
     myWin.show();   //Exécution de notre fenêtre de rendu OpenGL
+    std::cout << "+ , - = speed"<<std::endl<<"z , s = zoom"<<std::endl<<"Up, Down = hauteur objet";
 
-    delete s1;    delete s2; delete node;
     return app.exec();
 
-#else
-    CSG_Box* box = new CSG_Box(node->getBox());
+#elif(test == 1)
     Scene scene;
-    //scene.setNode(new OpS(b1,0.5));//new OpUnion(b1,&oR));//
-    //scene.setNode(new OpR(s1,vec3(0,0,1),2.0));//
 
     TerrainNoise* terre = new TerrainNoise(1000,1000);
-    //scene.setNode(new OpUnion(box,new OpUnion(node, new OpT(terre,vec3(-500,-500,-170)))));
-    scene.setNode(new OpUnion(node, new OpT(terre,vec3(-500,-500,-170))));
 
-    //scene.setNode(node);
+    scene.setNode(new OpUnion(&node, new OpT(terre,vec3(-500,-500,-170))));
+
     scene.addC(new Camera(vec3(10,-10,0), vec3(0,0,2), 200,720,400));
-    //scene.addC(new Camera(vec3(-10,-10,10), vec3(500,500,-300), 200,720,400));
+
     scene.rendu();
 
-    delete s1;    delete s2;    delete node;
+    delete terre;
     return 0;
 
-    (void) argc;    (void) argv;
+#elif(test == 2)
+
+    const int n = 50;
+
+    Voxel vox(n, &node);
+
+    ObjManager::voxelSave("./test.obj", vox);
+
+    return 0;
 
 #endif
+
+    (void) argc;    (void) argv;
 
 }
 

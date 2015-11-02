@@ -53,6 +53,12 @@ void myWindow::keyPressEvent(QKeyEvent *keyEvent)
         case Qt::Key_S:
             _zoom -= 1.0;
         break;
+        case Qt::Key_Up:
+            _hauteur += 1.0;
+        break;
+        case Qt::Key_Down:
+            _hauteur -= 1.0;
+        break;
     }
 }
 
@@ -97,20 +103,9 @@ void myWindow::paintGL()
     glLightiv(GL_LIGHT0,GL_POSITION,LightPos);
     glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 10);
 
-    glTranslatef(0.f, 1.f, _zoom);
+    glTranslatef(0.f, _hauteur, _zoom);
     glRotated(10,1,0,0);
     glRotated(_fx,0,1,0);
-
-    /*while(1){
-        int x,y,z;
-        x = rand()%vox.get_n();
-        y = rand()%vox.get_n();
-        z = rand()%vox.get_n();
-        if(vox(x,y,z)==1){
-            vox(x,y,z)=0;
-            break;
-        }
-    }*/
 
     for(float i2=-vox.get_n()/2.0; i2<vox.get_n()/2; i2++){
         for(float j2=-vox.get_n()/2.0; j2<vox.get_n()/2; j2++){
